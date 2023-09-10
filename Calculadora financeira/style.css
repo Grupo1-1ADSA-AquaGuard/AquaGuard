@@ -1,12 +1,22 @@
 body{
     display: flex;
     justify-content: center;
-    background-color: #e0e6ec;
+    background-color: #d3e0f0;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo{
+    width: 40%;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
 }
 
 #div_pai{
-    width: 50%;
-    border: solid 3px #131858;
+    width: 45%;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     align-items: center;
@@ -14,47 +24,43 @@ body{
     margin-top: auto;
     flex-direction: column;
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.h1_principal{
+.subtitulo{
     display: flex;
-    color: rgb(117, 22, 22);
-    font-size: 30px;
+    color: rgb(22, 73, 117);
+    font-size: 28px;
     justify-content: center;
-}
-
-.h2_sub{
-    display: flex;
-    color: #6e2715;
-    font-size: 25px;
-    justify-content: center;
+    margin: 15px;
 }
 
 #textoinputs{
-    display: flex;
+    /* display: flex; */
     font-size: 20px;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    align-items: start;
+    margin: 15px;
 }
 
 .inputs{
-    display: flex;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* display: flex; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 7px;
     font-size: 15px;
-    width: 50%;
+    width: 15%;
     height: 18px;
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
+    /* text-align: center; */
 }
 
 .button_calcular{
     display: flex;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
-    border-radius: 10px;
-    background-color: black;
+    border-radius: 15px;
+    background-color: #0c1353;
     color: aliceblue;
     width: 200px;
     justify-content: center;

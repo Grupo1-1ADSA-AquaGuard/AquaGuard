@@ -1,5 +1,5 @@
 int tcrt = 3;
-float luminosidade;
+// float luminosidade;
 int leitura = 0;
 
 void setup() {
@@ -13,5 +13,5 @@ void loop() {
   //temperatura = ((5.0/1023) * leitura) * 100;
   Serial.print("Presença: ");
   Serial.println(leitura);
-
+  delay(1000);
 }

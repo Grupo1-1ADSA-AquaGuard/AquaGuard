@@ -4,49 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora - AquaGuard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="div_pai">
-    <h1 class="h1_principal">CALCULADORA FINANCEIRA</h1>
-    <h2 class="h2_sub">Simule aqui resultados da nossa solução!</h2>
-    <div id="textoinputs">
-    Em qual estado sua empresa reside: <input class="inputs" type="text" id="input_estado" placeholder="SP"> <br><br>
-    Já sofreu com algum alagamento? Se sim, nos conte quantas vezes: <input class="inputs" type="number" id="input_numeros_enchentes" placeholder="350980"><br><br>
-    Insira seu faturamento anual: <input class="inputs" type="number" id="input_faturamento" placeholder="350980"><br><br>
+    <div id="titulo">
+        <img src="c:\Users\helos\OneDrive\Imagens\Saved Pictures\logoAquaGuard1.png" alt="">
     </div>
-    <button class="button_calcular" onclick="anual()">Calcular prejuízo</button><br>
-    
-    <div class="div_estado" id="div_prejuizo"></div><br>
-    <div class="div_estado" id="div_am"></div>
-    <div class="div_estado" id="div_pa"></div>
-    <div class="div_estado" id="div_ac"></div>
-    <div class="div_estado" id="div_rr"></div>
-    <div class="div_estado" id="div_ma"></div>
-    <div class="div_estado" id="div_pi"></div>
-    <div class="div_estado" id="div_to"></div>
-    <div class="div_estado" id="div_ba"></div>
-    <div class="div_estado" id="div_al"></div>
-    <div class="div_estado" id="div_pe"></div>
-    <div class="div_estado" id="div_se"></div>
-    <div class="div_estado" id="div_rj"></div>
-    <div class="div_estado" id="div_es"></div>
-    <div class="div_estado" id="div_mg"></div>
-    <div class="div_estado" id="div_sp"></div>
-    <div class="div_estado" id="div_pr"></div>
-    <div class="div_estado" id="div_sc"></div>
-    <div class="div_estado" id="div_rs"></div>
-    <div class="div_estado" id="div_ap"></div>
-    <div class="div_estado" id="div_ce"></div>
-    <div class="div_estado" id="div_go"></div>
-    <div class="div_estado" id="div_mt"></div>
-    <div class="div_estado" id="div_ms"></div>
-    <div class="div_estado" id="div_pb"></div>
-    <div class="div_estado" id="div_rn"></div>
-    <div class="div_estado" id="div_ro"></div><br>
-</div>
+    <div id="div_pai">
+        <p class="subtitulo"> <b>CALCULADORA FINANCEIRA <br>
+                Simule aqui resultados da nossa solução!</b>
+        </p>
+        <div id="textoinputs">
+            Em qual estado sua empresa reside: <input class="inputs" type="text" id="input_estado" placeholder="SP">
+            <br><br>
+            Já sofreu com algum alagamento? Se sim, nos conte quantas vezes: <input class="inputs" type="number"
+                id="input_numeros_enchentes" placeholder="350980"><br><br>
+            Insira seu faturamento anual aqui: <input class="inputs" type="number" id="input_faturamento"
+                placeholder="350980"><br><br>
+        </div>
+        <button class="button_calcular" onclick="anual()">Calcular prejuízo</button><br>
+
+        <div class="div_estado" id="div_prejuizo"></div><br>
+        <div class="div_estado" id="div_am"></div>
+        <div class="div_estado" id="div_pa"></div>
+        <div class="div_estado" id="div_ac"></div>
+        <div class="div_estado" id="div_rr"></div>
+        <div class="div_estado" id="div_ma"></div>
+        <div class="div_estado" id="div_pi"></div>
+        <div class="div_estado" id="div_to"></div>
+        <div class="div_estado" id="div_ba"></div>
+        <div class="div_estado" id="div_al"></div>
+        <div class="div_estado" id="div_pe"></div>
+        <div class="div_estado" id="div_se"></div>
+        <div class="div_estado" id="div_rj"></div>
+        <div class="div_estado" id="div_es"></div>
+        <div class="div_estado" id="div_mg"></div>
+        <div class="div_estado" id="div_sp"></div>
+        <div class="div_estado" id="div_pr"></div>
+        <div class="div_estado" id="div_sc"></div>
+        <div class="div_estado" id="div_rs"></div>
+        <div class="div_estado" id="div_ap"></div>
+        <div class="div_estado" id="div_ce"></div>
+        <div class="div_estado" id="div_go"></div>
+        <div class="div_estado" id="div_mt"></div>
+        <div class="div_estado" id="div_ms"></div>
+        <div class="div_estado" id="div_pb"></div>
+        <div class="div_estado" id="div_rn"></div>
+        <div class="div_estado" id="div_ro"></div><br>
+    </div>
 </body>
 
 </html>
@@ -84,133 +91,133 @@
         div_rn.innerHTML = ``;
         div_ro.innerHTML = ``;
 
-        if (estado =="AM") {
+        if (estado == "AM") {
             div_am.innerHTML =
-            `No estado do Amazonas a média anual de dias de chuva pode variar de 150 a 180 dias ou mais por ano.`
+                `No estado do Amazonas a média anual de dias de chuva pode variar de 150 a 180 dias ou mais por ano.`
         }
         if (estado == "PA") {
-            div_pa.innerHTML=
-            `No Pará, especialmente na região amazônica, é comum ter mais de 200 dias de chuva por ano.`
+            div_pa.innerHTML =
+                `No Pará, especialmente na região amazônica, é comum ter mais de 200 dias de chuva por ano.`
         }
         if (estado == "AC") {
             div_ac.innerHTML =
-            `Em média, Acre pode experimentar entre 150 a 180 dias de chuva por ano.`
+                `Em média, Acre pode experimentar entre 150 a 180 dias de chuva por ano.`
         }
         if (estado == "RR") {
             div_rr.innerHTML =
-            `Em média, Roraima registra cerca de 150 a 200 dias de chuva por ano.`
-        } if (estado =="MA") {
+                `Em média, Roraima registra cerca de 150 a 200 dias de chuva por ano.`
+        } if (estado == "MA") {
             div_ma.innerHTML =
-            `No Maranhão o número de dias de chuva por ano pode ser relativamente baixo, geralmente entre 60 e 100 dias de chuva por ano.`
+                `No Maranhão o número de dias de chuva por ano pode ser relativamente baixo, geralmente entre 60 e 100 dias de chuva por ano.`
         }
         if (estado == "PI") {
             div_pi.innerHTML =
-            `No Piauí a quantidade de dias de chuva pode ser maior, talvez chegando de 50 a 80 dias ou mais por ano.`
+                `No Piauí a quantidade de dias de chuva pode ser maior, talvez chegando de 50 a 80 dias ou mais por ano.`
         }
         if (estado == "TO") {
             div_to.innerHTML =
-            `Em Tocantins experimentam entre 80 e 120 dias de chuva por ano.`
+                `Em Tocantins experimentam entre 80 e 120 dias de chuva por ano.`
         }
         if (estado == "BA") {
             div_ba.innerHTML =
-            `Em média na Bahia, como Salvador, você pode esperar cerca de 100 a 150 dias de chuva por ano.`
+                `Em média na Bahia, como Salvador, você pode esperar cerca de 100 a 150 dias de chuva por ano.`
         }
         if (estado == "AL") {
             div_al.innerHTML =
-            `No estado de Alagoas podem esperar cerca de 80 a 100 dias de chuva por ano, especialmente durante a estação chuvosa.`
+                `No estado de Alagoas podem esperar cerca de 80 a 100 dias de chuva por ano, especialmente durante a estação chuvosa.`
         }
         if (estado == "PE") {
             div_pe.innerHTML =
-            `Em Recife, a média anual de dias de chuva pode variar de aproximadamente 100 a 150 dias.`
+                `Em Recife, a média anual de dias de chuva pode variar de aproximadamente 100 a 150 dias.`
         }
 
         if (estado == "SE") {
             div_se.innerHTML =
-            `Sergipe geralmente experimenta entre 70 e 100 dias de chuva por ano.`
+                `Sergipe geralmente experimenta entre 70 e 100 dias de chuva por ano.`
         }
 
         if (estado == "RJ") {
             div_rj.innerHTML =
-            `No Rio de Janeiro, a média anual de dias de chuva varia de 90 a 110 dias por ano.`
+                `No Rio de Janeiro, a média anual de dias de chuva varia de 90 a 110 dias por ano.`
         }
 
         if (estado == "ES") {
             div_es.innerHTML =
-            `Em média, o número de dias de chuva por ano no Espírito Santo pode variar de aproximadamente 70 a 100 dias.`
+                `Em média, o número de dias de chuva por ano no Espírito Santo pode variar de aproximadamente 70 a 100 dias.`
         }
 
         if (estado == "MG") {
             div_mg.innerHTML =
-            `Em Minas Gerais, é comum ter uma média de aproximadamente 90 a 120 dias de chuva por ano.`
+                `Em Minas Gerais, é comum ter uma média de aproximadamente 90 a 120 dias de chuva por ano.`
         }
 
         if (estado == "SP") {
             div_sp.innerHTML =
-            `Em média, a cidade de São Paulo tem cerca de 100 a 110 dias de chuva por ano.`
+                `Em média, a cidade de São Paulo tem cerca de 100 a 110 dias de chuva por ano.`
         }
 
         if (estado == "PR") {
             div_pr.innerHTML =
-            `o Paraná geralmente experimenta cerca de 120 a 150 dias de chuva por ano.`
+                `o Paraná geralmente experimenta cerca de 120 a 150 dias de chuva por ano.`
         }
 
         if (estado == "SC") {
             div_sc.innerHTML =
-            `A média anual de dias de chuva em Santa Catarina varia de aproximadamente 100 a 150 dias.`
+                `A média anual de dias de chuva em Santa Catarina varia de aproximadamente 100 a 150 dias.`
         }
 
         if (estado == "RS") {
             div_rs.innerHTML =
-            `Em média, o Rio Grande do Sul experimenta cerca de 100 a 140 dias de chuva por ano.`
+                `Em média, o Rio Grande do Sul experimenta cerca de 100 a 140 dias de chuva por ano.`
         }
 
         if (estado == "AP") {
             div_ap.innerHTML =
-            `Amapá experimentam cerca de 200 a 250 dias de chuva por ano.`
+                `Amapá experimentam cerca de 200 a 250 dias de chuva por ano.`
         }
 
         if (estado == "CE") {
             div_ce.innerHTML =
-            `A média anual de dias de chuva no Ceara é geralmente em torno de 80 a 90 dias.`
+                `A média anual de dias de chuva no Ceara é geralmente em torno de 80 a 90 dias.`
         }
 
         if (estado == "GO") {
             div_go.innerHTML =
-            `A média de dias de chuva em Goiás pode ser um pouco maior, variando de cerca de 100 a 140 dias por ano.`
+                `A média de dias de chuva em Goiás pode ser um pouco maior, variando de cerca de 100 a 140 dias por ano.`
         }
 
-        if (estado == "MG") {
+        if (estado == "MT") {
             div_mg.innerHTML =
-            `Em média, no Mato Grosso experimentam cerca de 90 a 120 dias de chuva por ano.`
+                `Em média, no Mato Grosso experimentam cerca de 90 a 120 dias de chuva por ano.`
         }
 
         if (estado == "MS") {
             div_ms.innerHTML =
-            `Em média, o estado de Mato Grosso do Sul registra aproximadamente 120 a 150 dias de chuva por ano.`
+                `Em média, o estado de Mato Grosso do Sul registra aproximadamente 120 a 150 dias de chuva por ano.`
         }
 
         if (estado == "PB") {
             div_pb.innerHTML =
-            `Paraíba pode experimentar cerca de 60 a 100 dias de chuva por ano.`
+                `Paraíba pode experimentar cerca de 60 a 100 dias de chuva por ano.`
         }
 
         if (estado == "RN") {
             div_rn.innerHTML =
-            `Em média, a quantidade de dias de chuva por ano no Rio Grande do Norte pode variar de aproximadamente 40 a 80 dias.`
+                `Em média, a quantidade de dias de chuva por ano no Rio Grande do Norte pode variar de aproximadamente 40 a 80 dias.`
         }
 
         if (estado == "RO") {
             div_ro.innerHTML =
-            `Em média, Rondônia pode ter entre 120 a 180 dias de chuva por ano.`
+                `Em média, Rondônia pode ter entre 120 a 180 dias de chuva por ano.`
         }
 
         if (qtdenchentes > 0) {
             div_prejuizo.innerHTML = `
-        Com o Aquaguard você economizaria cerca de R$${prejuizo * qtdenchentes}.
+        Com o AquaGuard você economizaria cerca de R$${prejuizo * qtdenchentes}.
         `
-        } else{
+        } else {
             div_prejuizo.innerHTML = `Com base em seu faturamento, caso sofra com um 
-            alagamento seu prejuizo seria de aproximadamente R$${prejuizo}.`
+            alagamento seu prejuízo seria de aproximadamente R$${prejuizo}.`
         }
 
 
