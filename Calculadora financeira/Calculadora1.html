@@ -10,21 +10,21 @@
 
 <body>
     <div id="titulo">
-        <img src="logoAquaGuard1.png" alt="Logo">
+        <img src="logoAquaGuard.png" alt="Logo">
     </div>
     <div id="div_pai">
         <p class="subtitulo"> <b>CALCULADORA FINANCEIRA <br>
                 Simule aqui resultados da nossa solução!</b>
         </p>
         <div id="textoinputs">
-            Em qual estado sua empresa reside: <input class="inputs" type="text" id="input_estado" placeholder="SP">
+            Em qual estado sua empresa reside: <br><input class="inputs" type="text" id="input_estado" placeholder="SP">
             <br><br>
-            Já sofreu com algum alagamento? Se sim, nos conte quantas vezes: <input class="inputs" type="number"
-                id="input_numeros_enchentes" placeholder="350980"><br><br>
-            Insira seu faturamento anual aqui: <input class="inputs" type="number" id="input_faturamento"
+            Já sofreu com algum alagamento? Se sim, nos conte quantas vezes: <br><input class="inputs" type="number"
+                id="input_numeros_enchentes" placeholder="350980" min="0"><br><br>
+            Insira seu faturamento anual: <br> <input class="inputs" type="number" id="input_faturamento"
                 placeholder="350980"><br><br>
         </div>
-        <button class="button_calcular" onclick="anual()">Calcular prejuízo</button><br>
+        <button class="button_calcular" onclick="anual()">Calcular Prejuízo</button><br>
 
         <div class="div_estado" id="div_prejuizo"></div><br>
         <div class="div_estado" id="div_am"></div>
