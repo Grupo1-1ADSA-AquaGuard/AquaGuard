@@ -1,4 +1,4 @@
-int tcrt = 3;
+int tcrt = 7;
 // float luminosidade;
 int leitura = 0;
 
