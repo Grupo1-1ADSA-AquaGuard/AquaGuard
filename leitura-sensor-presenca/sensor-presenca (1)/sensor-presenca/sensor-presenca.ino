@@ -4,7 +4,7 @@ int leitura = 0;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  Serial.begin(9600); 
 }
 
 void loop() {
@@ -13,5 +13,5 @@ void loop() {
   //temperatura = ((5.0/1023) * leitura) * 100;
   Serial.print("Presença: ");
   Serial.println(leitura);
-  delay(1000);
+  delay(2000);
 }

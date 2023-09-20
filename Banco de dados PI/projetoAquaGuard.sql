@@ -60,21 +60,31 @@ INSERT INTO leituraSensores (sensor1, sensor2) VALUES
 (1,0),
 (1,1);
 
--- SELECT
+-- SELECT normal
 SELECT * FROM usuarioEmpresa;
 SELECT * FROM dadosEmpresa;
 SELECT * FROM enderecoEmpresa;
-SELECT * FROM leituraSensores;
+SELECT * FROM leituraSensores; --
 
+-- SELECT com AS
 SELECT id_usuario AS ID, email_usuario AS Email, senha_usuario AS Senha FROM usuarioEmpresa;
+
 SELECT cnpj_empresa AS CNPJ, nome_empresa AS Nome, email_empresa AS Email FROM dadosEmpresa; 
-SELECT cep_empresa AS CEP, rua_empresa AS Rua, bairro_empresa AS Bairro, municipio_empresa AS Município, complemento_empresa AS Complemento FROM enderecoEmpresa; 
+
+SELECT cep_empresa AS CEP, rua_empresa AS Rua, bairro_empresa AS Bairro, 
+	municipio_empresa AS Município, complemento_empresa AS Complemento FROM enderecoEmpresa;--
+    
 SELECT sensor1 AS 'Sensor de presença 1', sensor2 AS 'Sensor de presença 2', dt_atual AS 'Data e Hora' FROM leituraSensores;
 
-SELECT * FROM usuarioEmpresa WHERE email_usuario LIKE 'g%';
+-- SELECT com LIKE
+SELECT * FROM usuarioEmpresa WHERE email_usuario LIKE 'g%';--
 SELECT * FROM dadosEmpresa WHERE nome_empresa LIKE '%a';
 SELECT * FROM enderecoEmpresa WHERE rua_empresa LIKE '%a_';
 SELECT * FROM leituraSensores WHERE sensor1 = 1;
 
-DROP DATABASE AquaGuard;
+DROP TABLE usuarioEmpresa;
+DROP TABLE dadosEmpresa;
+DROP TABLE enderecoEmpresa;
+DROP TABLE leituraSensores;
+
     
