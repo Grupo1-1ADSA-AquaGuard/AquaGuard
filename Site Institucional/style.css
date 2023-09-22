@@ -1,0 +1,65 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    /* background-image: url(fundo.png);
+    background-size: 100%; */
+    background-image: linear-gradient(to right, #9ED5EA, rgb(191, 215, 240), rgb(162, 212, 236), #b3dbea);
+}
+
+
+.header {
+    /*padding empurra os elementos para dentro */
+    background-color: #ffffffcd;
+    display: flex;
+    height: 70px;
+}
+
+.header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projeto {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    
+}
+
+.usuario {
+    width: 180px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.header .container .usuario img {
+    width: 22px;
+}
+
+.header .container img {
+    width: 200px;
+    display: flex;
+    margin-right: 4px;
+}
+
+.header .container a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-decoration-color: rgb(12, 18, 58);
+}
+
+.li_cadastro {
+    margin-right: 30px;
+}
