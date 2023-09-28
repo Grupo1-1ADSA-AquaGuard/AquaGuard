@@ -92,6 +92,8 @@ from usuarioEmpresa as u join dadosEmpresa as d on fk_empresa = id_empresa join 
 SELECT sensor1 AS 'Sensor de presença 1', sensor2 AS 'Sensor de presença 2', dt_atual AS 'Data e Hora', a.alerta_sensor as Alerta 
 FROM leituraSensores join alertas as a on fk_alerta = id_alerta;
 
+-- Ligar a tabela empresa com a tabela sensor. 
+
 
 
 
