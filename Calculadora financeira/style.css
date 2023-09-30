@@ -1,73 +1,133 @@
-body{
-    display: flex;
-    justify-content: center;
-    background-color: #d3e0f0;
-    flex-direction: column;
-    align-items: center;
-}
-
-#titulo{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 15px;
-}
-
-#div_pai{
-    width: 45%;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-    display: flex;
-    margin-top: auto;
-    flex-direction: column;
-    text-align: center;
+* {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.subtitulo{
+body {
+    margin: 0;
+}
+
+.header {
+    background-color: #f0f4fa;
     display: flex;
-    color: rgb(22, 73, 117);
-    font-size: 28px;
-    justify-content: center;
-    margin: 15px;
+    height: 70px;
 }
 
-#textoinputs{
-    /* display: flex; */
-    font-size: 20px;
-    /* flex-direction: column; */
-    align-items: center;
-    margin: 15px;
-}
-
-.inputs{
-    /* display: flex; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border: solid 2px #0c1353;
-    border-radius: 7px;
-    font-size: 15px;
-    width: 20%;
-    height: 18px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.button_calcular{
+.header .container {
+    width: 80%;
+    margin: auto;
     display: flex;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    border-radius: 15px;
-    background-color: #0c1353;
-    color: aliceblue;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projeto {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    
+}
+
+.usuario {
+    width: 180px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.header .container .usuario img {
+    width: 25px;
+}
+
+.header .container img {
     width: 200px;
-    justify-content: center;
+    display: flex;
+    margin-right: 4px;
 }
 
-.div_estado{
+.li_cadastro {
+    margin-right: 30px;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 20px;
+    color: #4f8296;
+}
+
+.banner {
+    background-image: url(imagens/fundo.png);
+    background-size: cover;
+    height: 900px;
+}
+
+.container {
     display: flex;
-    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo {
+    display: flex;
+    justify-content: center;
+    color: rgb(7, 14, 77);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+#subtitulo {
+    display: flex;
+    justify-content: center;
+    color: rgb(7, 14, 77);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    width: 600px;
+    height: 600px;
+    background-color: #f0f4fa;
+}
+
+.formulario span{
+    color: rgb(6, 11, 58);
+    font-size: 18px;
+}
+
+.formulario input{
+    width: 250px;
+    height: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+
+}
+
+.formulario button{
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(19, 29, 110);
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.formulario button:hover{
+    background-color: rgb(46, 64, 129);
 }

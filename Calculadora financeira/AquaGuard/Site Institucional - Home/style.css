@@ -1,0 +1,131 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.header {
+    /*padding empurra os elementos para dentro */
+    background-color: #f0f4fa;
+    display: flex;
+    height: 70px;
+}
+
+.header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projeto {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    
+}
+
+.usuario {
+    width: 180px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.header .container .usuario img {
+    width: 25px;
+}
+
+.header .container img {
+    width: 200px;
+    display: flex;
+    margin-right: 4px;
+}
+
+.li_cadastro {
+    margin-right: 30px;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 20px;
+    color: #4f8296;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.banner {
+    background-image: url(imagens/fundo.png);
+    background-size: cover;
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.banner .container .textos p{
+    font-size: 36px;
+    color: #444f6b;
+    width: 320px;
+    font-weight: 500;
+
+}
+
+
+.banner .container .textos .botao {
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 0;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    color: black;
+    background-color: #f0f4fa;
+    width: 250px;
+    height: 40px;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.banner .container .textos button:hover{
+    background-color: #dfe2e8;
+}
+
+.box img {
+    width: 200px;
+}
+
+.banner .container .boxes {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 200px;
+}
+
+.banner .container .boxes1 {
+    margin-top: 70px;
+}
+
+.footer {
+    height: 60px;
+    width: 100%;
+    background-color: #f0f4fa;
+}
