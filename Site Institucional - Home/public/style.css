@@ -1,0 +1,211 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* --------------------- COMEÇO DA NAVBAR -------------------- */
+
+.header {
+    /*padding empurra os elementos para dentro */
+    background-color: #f0f4fa;
+    display: flex;
+    height: 70px;
+}
+
+.header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.projeto {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.header ul #aqui {
+    font-weight: 900;
+}
+
+.usuario {
+    width: 180px;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    align-items: center;
+}
+
+.header .container .usuario .cadastro {
+    width: 30px;
+    margin-right: 5px;
+}
+
+.header .container .usuario .login {
+    width: 28px;
+    margin-right: 5px;
+}
+
+.header .container .logo .imagem_logo {
+    width: 70px;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-20px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+}
+
+.header .container .logo .frase_logo {
+    width: 150px;
+    height: 25px;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-20px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.li_cadastro {
+    margin-right: 30px;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    position: relative;
+}
+
+.projeto a::after{ /* after adiciona um elemento depois do a (link)*/
+    content: " ";
+    width: 0;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+    margin-top: 6px;
+}
+
+.projeto a:hover::after {
+    width: 100%;
+}
+
+/* ------------------------ FIM DA NAVBAR ------------------------ */
+
+/* ------------------------ COMEÇO DO BANNER -------------------------- */
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.banner {
+    background-image: url(assets/imgs/fundo.png);
+    background-size: cover;
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.banner .container .textos p {
+    font-size: 36px;
+    color: #444f6b;
+    width: 320px;
+    font-weight: 500;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+}
+
+
+
+.banner .container .textos .botao {
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 0;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    color: black;
+    background-color: #f0f4fa;
+    width: 250px;
+    height: 40px;
+    align-self: center;
+    text-decoration: underline;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+}
+
+
+.banner .container .textos button:hover {
+    background-color: #dfe2e8;
+}
+
+.box img {
+    width: 200px;
+    opacity: 0;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+}
+
+
+.banner .container .boxes {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 200px;
+}
+
+.banner .container .boxes1 {
+    margin-top: 70px;
+}
+
+/* ------------------------------- FIM DO BANNER ----------------------- */
+
+/* ------------------------------- ÍNICIO DO FOOTER ----------------------- */
+
+.footer {
+    height: 60px;
+    width: 100%;
+    background-color: #f0f4fa;
+}
+
+/* --------------------------------- FIM DO FOOTER --------------------------- */
+
+
+/* ---------------------------------- ÍNICIO DA ANIMAÇÃO ---------------------------------- */
+@keyframes slide {
+
+    from{
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
