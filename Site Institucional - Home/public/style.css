@@ -13,6 +13,7 @@ body {
     background-color: #f0f4fa;
     display: flex;
     height: 70px;
+    border-bottom: 1.5px solid #444f6b;
 }
 
 .header .container {
@@ -25,23 +26,23 @@ body {
 }
 
 .projeto {
-    width: 500px;
+    width: 450px;
     list-style: none;
     display: flex;
     justify-content: space-between;
-    color: rgb(0, 0, 0);
     font-size: 17px;
 }
 
-.header ul #aqui {
+.header ul #aqui a {
     font-weight: 900;
+    color: #466587;
 }
 
 .usuario {
     width: 180px;
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     color: rgb(0, 0, 0);
     font-size: 17px;
     align-items: center;
@@ -93,7 +94,7 @@ a {
     content: " ";
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: #3f6084;
     position: absolute;
     bottom: 0;
     left: 0;
