@@ -10,10 +10,10 @@ body {
 
 .header {
     /*padding empurra os elementos para dentro */
-    background-color: #f0f4fa;
     display: flex;
     height: 70px;
     border-bottom: 1.5px solid #444f6b;
+    animation: cor 2s forwards ease-in-out;
 }
 
 .header .container {
@@ -124,7 +124,7 @@ a {
 .banner .container {
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 667px;
 }
 
 .banner .container .textos p {
@@ -187,15 +187,6 @@ a {
 
 /* ------------------------------- FIM DO BANNER ----------------------- */
 
-/* ------------------------------- ÍNICIO DO FOOTER ----------------------- */
-
-.footer {
-    height: 60px;
-    width: 100%;
-    background-color: #f0f4fa;
-}
-
-/* --------------------------------- FIM DO FOOTER --------------------------- */
 
 
 /* ---------------------------------- ÍNICIO DA ANIMAÇÃO ---------------------------------- */
@@ -208,5 +199,17 @@ a {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@keyframes cor {
+    0%{
+        background-color: #d3d8e2;
+    }
+    50%{
+        background-color: #c1c9dc;
+    }
+    100%{
+        background-color: #f0f4fa;    
     }
 }
