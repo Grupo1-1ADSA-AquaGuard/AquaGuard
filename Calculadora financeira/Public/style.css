@@ -64,7 +64,7 @@ a:hover {
 }
 
 .banner {
-    background-image: url(imagens/fundo.png);
+    background-image: url(Assets/imagens/fundo.png);
     background-size: cover;
     height: 900px;
 }
