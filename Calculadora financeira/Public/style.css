@@ -10,6 +10,7 @@ body {
     background-color: #f0f4fa;
     display: flex;
     height: 70px;
+    border-bottom: 1.5px solid #444f6b;
 }
 
 .header .container {
@@ -19,6 +20,29 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+.header .container .logo .imagem {
+    width: 70px;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; 
+    transform: translateX(-20px);
+}
+
+.header .container .logo .frase {
+    width: 150px;
+    height: 25px;
+    animation-name: slide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards; 
+    transform: translateX(-20px); 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 
 .projeto {
     width: 500px;
@@ -66,7 +90,7 @@ a:hover {
 .banner {
     background-image: url(Assets/imagens/fundo.png);
     background-size: cover;
-    height: 900px;
+    height: 1100px;
 }
 
 .container {
@@ -130,4 +154,21 @@ a:hover {
 
 .formulario button:hover{
     background-color: rgb(46, 64, 129);
+}
+
+#div_prejuizo{
+    font-size: 15px;
+    margin: 15px;
+}
+
+@keyframes slide {
+
+    from{
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
