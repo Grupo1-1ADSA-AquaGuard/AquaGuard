@@ -11,7 +11,7 @@
 <body>
     <div class="header">
         <div class="container">
-            <img src="Assets/imagens/logoAquaGuard.png" alt="Logo">
+            <img src="imagens/logoAquaGuard.png" alt="Logo">
             <ul class="projeto">
                 <li><a href="https://github.com/Grupo7-1ADSA-AquaGuard" target="_blank">Home</a></li>
                 <li><a href="">Projeto</a></li>
@@ -20,10 +20,8 @@
                 <li><a href="">Contato</a></li>
             </ul>
             <ul class="usuario">
-                <img src="Assets/imagens/cadastro.png" alt="">
-                <li class="li_cadastro">Cadastro</li>
-                <img src="Assets/imagens/login.png" alt="">
-                <li class="li_cadastro">Login</li>
+                <img src="Assets/imagens/cadastro.png" alt=""><li class="li_cadastro">Cadastro</li>
+                <img src="Assets/imagens/login.png" alt=""><li class="li_cadastro">Login</li>
             </ul>
         </div>
     </div>
@@ -38,152 +36,184 @@
                     <p id="subtitulo"> Simule aqui resultados da nossa solução!</p> <br> <br>
                     <span> Em qual estado sua empresa reside:</span> <br>
                     <input class="inputs" type="text" id="input_estado" placeholder="SP"> <br><br>
-
+            
                     <span>Já sofreu com algum alagamento? Se sim, nos conte quantas vezes:</span> <br>
-                    <input class="inputs" type="number" id="input_numeros_enchentes" placeholder="350980"
-                        min="0"><br><br>
+                    <input class="inputs" type="number" id="input_numeros_enchentes" placeholder="1" min="0"><br><br>
 
-                    <span>Insira seu faturamento anual:</span><br>
-                    <input class="inputs" type="number" id="input_faturamento" placeholder="350980"><br><br>
+                    <span>Insira seu faturamento anual:</span><br> 
+                    <input class="inputs" type="number" id="input_faturamento" placeholder="6500100"><br><br>
 
                     <button class="button_calcular" onclick="anual()">Calcular Prejuízo</button><br>
-                    <div class="div_estado" id="div_prejuizo"></div><br>
-                    <div class="div_estado" id="div_id_estado"></div>
                 </div>
             </div>
-        </div>
+    </div>
+        
 
-    </div>
-    </div>
+                <div class="div_estado" id="div_prejuizo"></div><br>
+                <div class="div_estado" id="div_id_estado"></div>
+            </div>
+        </div>
 </body>
 
 </html>
 <script>
     function anual() {
-        var qtdenchentes = Number(input_numeros_enchentes.value);
+        var qtd_enchentes = Number(input_numeros_enchentes.value);
         var faturamento = Number(input_faturamento.value);
-        var prejuizo = Math.round(faturamento / 365) * 0.20;
+        var prejuizo_dias_fechado = faturamento / 365;
+        var prejuizo_equipamentos = prejuizo_dias_fechado * 0.2;
+        var prejuizo_total = prejuizo_dias_fechado + prejuizo_equipamentos;
         var estado = (input_estado.value).toUpperCase();
 
+        var frase_estado = '';
 
-        if (qtdenchentes > 0) {
-            div_prejuizo.innerHTML = `
-                Com o AquaGuard você economizaria cerca de R$${prejuizo * qtdenchentes} com base nos alagamentos sofridos.
-            `;
-        } else {
-            div_prejuizo.innerHTML = `
-                Com base em seu faturamento, caso sofra com um alagamento seu prejuízo seria de aproximadamente R$${prejuizo}.
-            `;
+        if (qtd_enchentes > 0){
+            prejuizo_total *= qtd_enchentes;
+            prejuizo_total += `de prejuízos financeiros que poderiam ser evitados.`;
+        }else{
+            prejuizo_total += `de prejuízos financeiros.`;
         }
-
 
         if (estado == "AM") {
-            div_id_estado.innerHTML =
-                `No estado do Amazonas a média anual de dias de chuva pode variar de 150 a 180 dias ou mais por ano.`;
+            frase_estado =
+                `No estado do Amazonas a média anual de dias de chuva pode variar de 150 a 180 dias ou mais por ano`;
+        
+            }else if (estado == "PA") {
+            frase_estado =
+                `No Pará, especialmente na região amazônica, é comum ter mais de 200 dias de chuva por ano`;
+        
+            }else if (estado == "AC") {
+            frase_estado =
+                `Em média, Acre pode experimentar entre 150 a 180 dias de chuva por ano`;
+        
+            }else if (estado == "RR") {
+            frase_estado =
+                `Em média, Roraima registra cerca de 150 a 200 dias de chuva por ano`;
+            
+            }else if (estado == "MA") {
+            frase_estado =
+                `No Maranhão o número de dias de chuva por ano pode ser relativamente baixo, geralmente entre 60 e 100 dias de chuva por ano`;
+        
+            }else if (estado == "PI") {
+            frase_estado =
+                `No Piauí a quantidade de dias de chuva pode ser maior, talvez chegando de 50 a 80 dias ou mais por ano`;
+        
+            }else if (estado == "TO") {
+            frase_estado =
+                `Em Tocantins experimentam entre 80 e 120 dias de chuva por ano`;
+        
+            }else if (estado == "BA") {
+            frase_estado =
+                `Em média na Bahia, como Salvador, você pode esperar cerca de 100 a 150 dias de chuva por ano`;
+        
+            }else if (estado == "AL") {
+            frase_estado =
+                `No estado de Alagoas podem esperar cerca de 80 a 100 dias de chuva por ano, especialmente durante a estação chuvosa`;
+        
+            }else if (estado == "PE") {
+            frase_estado =
+                `Em Recife, a média anual de dias de chuva pode variar de aproximadamente 100 a 150 dias`;
+        
+            }else if (estado == "SE") {
+            frase_estado =
+                `Sergipe geralmente experimenta entre 70 e 100 dias de chuva por ano`;
+        
+            }else if (estado == "RJ") {
+            frase_estado =
+                `No Rio de Janeiro, a média anual de dias de chuva varia de 90 a 110 dias por ano`;
+        
+            }else if (estado == "ES") {
+            frase_estado =
+                `Em média, o número de dias de chuva por ano no Espírito Santo pode variar de aproximadamente 70 a 100 dias`;
+        
+            }else if (estado == "MG") {
+            frase_estado =
+                `Em Minas Gerais, é comum ter uma média de aproximadamente 90 a 120 dias de chuva por ano`;
+        
+            }else if (estado == "SP") {
+            frase_estado =
+                `Em média, a cidade de São Paulo tem cerca de 100 a 110 dias de chuva por ano`;
+        
+            }else if (estado == "PR") {
+            frase_estado =
+                `o Paraná geralmente experimenta cerca de 120 a 150 dias de chuva por ano`;
+        
+            }else if (estado == "SC") {
+            frase_estado =
+                `A média anual de dias de chuva em Santa Catarina varia de aproximadamente 100 a 150 dias`;
+        
+            }else if (estado == "RS") {
+            frase_estado =
+                `Em média, o Rio Grande do Sul experimenta cerca de 100 a 140 dias de chuva por ano`;
+        
+            }else if (estado == "AP") {
+            frase_estado =
+                `Amapá experimentam cerca de 200 a 250 dias de chuva por ano`;
+        
+            }else if (estado == "CE") {
+            frase_estado =
+                `A média anual de dias de chuva no Ceara é geralmente em torno de 80 a 90 dias`;
+        
+            }else if (estado == "GO") {
+            frase_estado =
+                `A média de dias de chuva em Goiás pode ser um pouco maior, variando de cerca de 100 a 140 dias por ano`;
+        
+            }else if (estado == "MT") {
+            frase_estado =
+                `Em média, no Mato Grosso experimentam cerca de 90 a 120 dias de chuva por ano`;
+        
+            }else if (estado == "MS") {
+            frase_estado =
+                `Em média, o estado de Mato Grosso do Sul registra aproximadamente 120 a 150 dias de chuva por ano`;
+        
+            }else if (estado == "PB") {
+            frase_estado =
+                `Paraíba pode experimentar cerca de 60 a 100 dias de chuva por ano`;
+        
+            }else if (estado == "RN") {
+            frase_estado =
+                `Em média, a quantidade de dias de chuva por ano no Rio Grande do Norte pode variar de aproximadamente 40 a 80 dias`;
+        
+            }else if (estado == "RO") {
+            frase_estado =
+                `Em média, Rondônia pode ter entre 120 a 180 dias de chuva por ano`;
+        
+            }else{
+                alert(`Insira um estado válido!`);
+            }
 
-        } else if (estado == "PA") {
-            div_id_estado.innerHTML =
-                `No Pará, especialmente na região amazônica, é comum ter mais de 200 dias de chuva por ano.`;
+            div_prejuizo.innerHTML = `
+                <p>
+                    O Brasil, país tropical com grandes períodos de clima úmido, soma um prejuízo de 55,5 bilhões de reais causados pelas chuvas nos últimos 5 anos (Fonte Métropoles). O evento climático, mesmo quando previsto, causa sérios danos pela falta de infraestrutura brasileira e as empresas que realizam operações comerciais e necessitam do armazenamento e distribuição de mercadorias acabam protagonizam o prejuízo.
 
-        } else if (estado == "AC") {
-            div_id_estado.innerHTML =
-                `Em média, Acre pode experimentar entre 150 a 180 dias de chuva por ano.`;
+                </p>
+                <p>
 
-        } else if (estado == "RR") {
-            div_id_estado.innerHTML =
-                `Em média, Roraima registra cerca de 150 a 200 dias de chuva por ano.`;
+                    Os supermercados, detentores das maiores cadeias de produtos perecíveis e alto fluxo de faturamento são os mais atingidos (Fonte São Paulo Agora). Um supermercado é a representação do comercio varejista, em uma escala maior e, principalmente, com fragilidade de estoque.
 
-        } else if (estado == "MA") {
-            div_id_estado.innerHTML =
-                `No Maranhão o número de dias de chuva por ano pode ser relativamente baixo, geralmente entre 60 e 100 dias de chuva por ano.`;
+                </p>
+                <p>
 
-        } else if (estado == "PI") {
-            div_id_estado.innerHTML =
-                `No Piauí a quantidade de dias de chuva pode ser maior, talvez chegando de 50 a 80 dias ou mais por ano.`;
+                    A situação se agrava quando olhamos o alagamento por outra perspectiva, a dos prejuízos indiretos: Um supermercado leva, em média, 3 dias para se recuperar de um alagamento e, mesmo atendendo as expectativas, ainda precisam depois elevar os preços para equilibrar os dias sem vendas, mas influenciam em uma experiência negativa para o cliente.
+                
+                </p>
+                <p>
 
-        } else if (estado == "TO") {
-            div_id_estado.innerHTML =
-                `Em Tocantins experimentam entre 80 e 120 dias de chuva por ano.`;
+                    No primeiro da recuperação, é fundamental a maior preservação possível dos estoques e estrutura, no segundo dia, quando escoada a água, é o dia da higienização e não pense que é algo simples, o Ministério da Saúde requisita um procedimento minucioso já a água no estabelecimento tem origem dos esgotos, e, por fim, no último dia, é necessário o reabastecimento de estoque e recuperação da estrutura afetada. O detalhe é que o alagamento pendura por toda uma região e acaba afetando o deslocamento dos funcionários que, quando não presentes, tornam esse tempo de recuperação mais lento.
 
-        } else if (estado == "BA") {
-            div_id_estado.innerHTML =
-                `Em média na Bahia, como Salvador, você pode esperar cerca de 100 a 150 dias de chuva por ano.`;
+                </p>
+                <p>
 
-        } else if (estado == "AL") {
-            div_id_estado.innerHTML =
-                `No estado de Alagoas podem esperar cerca de 80 a 100 dias de chuva por ano, especialmente durante a estação chuvosa.`;
+                    ${frase_estado}, mas com o Aquaguard, nosso sistema de monitoramento que prevê enchentes com antecedência, é possível receber um alerta de alagamento momentos o suficiente para realização de um plano de contingência. O tempo de reação para colocar uma comporta, organizar a parte mais frágil e de maior valor em áreas estratégicas de preservação, desligar equipamentos elétricos que podem vir a queimar e garantir a segurança dos clientes, dentre outros planos de contingência, têm o potencial de fazer a diferença nos prejuízos e tempo de reestabelecimento ao supermercado.
 
-        } else if (estado == "PE") {
-            div_id_estado.innerHTML =
-                `Em Recife, a média anual de dias de chuva pode variar de aproximadamente 100 a 150 dias.`;
+                </p>
+                <p>
 
-        } else if (estado == "SE") {
-            div_id_estado.innerHTML =
-                `Sergipe geralmente experimenta entre 70 e 100 dias de chuva por ano.`;
+                    Garantindo a integridade do estoque, equipamentos e estruturas a tempo e diminuindo em 35% o período de reabertura da empresa, você deixaria de perder, NO MÍNIMO R$${prejuizo_dias_fechado} de faturamento com a reabertura do supermercado e, em parâmetros dados pela APAS, R$${prejuizo_equipamentos} em equipamentos e estoque, totalizando R$${prejuizo_total}
 
-        } else if (estado == "RJ") {
-            div_id_estado.innerHTML =
-                `No Rio de Janeiro, a média anual de dias de chuva varia de 90 a 110 dias por ano.`;
+                </p>
 
-        } else if (estado == "ES") {
-            div_id_estado.innerHTML =
-                `Em média, o número de dias de chuva por ano no Espírito Santo pode variar de aproximadamente 70 a 100 dias.`;
-
-        } else if (estado == "MG") {
-            div_id_estado.innerHTML =
-                `Em Minas Gerais, é comum ter uma média de aproximadamente 90 a 120 dias de chuva por ano.`;
-
-        } else if (estado == "SP") {
-            div_id_estado.innerHTML =
-                `Em média, a cidade de São Paulo tem cerca de 100 a 110 dias de chuva por ano.`;
-
-        } else if (estado == "PR") {
-            div_id_estado.innerHTML =
-                `o Paraná geralmente experimenta cerca de 120 a 150 dias de chuva por ano.`;
-
-        } else if (estado == "SC") {
-            div_id_estado.innerHTML =
-                `A média anual de dias de chuva em Santa Catarina varia de aproximadamente 100 a 150 dias.`;
-
-        } else if (estado == "RS") {
-            div_id_estado.innerHTML =
-                `Em média, o Rio Grande do Sul experimenta cerca de 100 a 140 dias de chuva por ano.`;
-
-        } else if (estado == "AP") {
-            div_id_estado.innerHTML =
-                `Amapá experimentam cerca de 200 a 250 dias de chuva por ano.`;
-
-        } else if (estado == "CE") {
-            div_id_estado.innerHTML =
-                `A média anual de dias de chuva no Ceara é geralmente em torno de 80 a 90 dias.`;
-
-        } else if (estado == "GO") {
-            div_id_estado.innerHTML =
-                `A média de dias de chuva em Goiás pode ser um pouco maior, variando de cerca de 100 a 140 dias por ano.`;
-
-        } else if (estado == "MT") {
-            div_id_estado.innerHTML =
-                `Em média, no Mato Grosso experimentam cerca de 90 a 120 dias de chuva por ano.`;
-
-        } else if (estado == "MS") {
-            div_id_estado.innerHTML =
-                `Em média, o estado de Mato Grosso do Sul registra aproximadamente 120 a 150 dias de chuva por ano.`;
-
-        } else if (estado == "PB") {
-            div_id_estado.innerHTML =
-                `Paraíba pode experimentar cerca de 60 a 100 dias de chuva por ano.`;
-
-        } else if (estado == "RN") {
-            div_id_estado.innerHTML =
-                `Em média, a quantidade de dias de chuva por ano no Rio Grande do Norte pode variar de aproximadamente 40 a 80 dias.`;
-
-        } else if (estado == "RO") {
-            div_id_estado.innerHTML =
-                `Em média, Rondônia pode ter entre 120 a 180 dias de chuva por ano.`;
-
-        } else {
-            alert(`Insira um estado válido!`);
-        }
+            `;
 
 
 
