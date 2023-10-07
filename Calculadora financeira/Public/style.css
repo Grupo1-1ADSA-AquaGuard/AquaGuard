@@ -161,6 +161,12 @@ a:hover {
     margin: 15px;
 }
 
+#div_prejuizo span{
+    font-style: italic;
+    font-weight: bold;
+}
+
+
 @keyframes slide {
 
     from{
