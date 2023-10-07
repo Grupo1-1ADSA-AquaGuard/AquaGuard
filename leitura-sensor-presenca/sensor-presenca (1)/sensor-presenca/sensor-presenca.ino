@@ -1,17 +1,40 @@
+#include "DHT.h"
+
+DHT dht_1 = DHT(A0, DHT11);
+
 int tcrt = 7;
-// float luminosidade;
+int ldr = A1;
+int lm35 = A2;
+
+int temperatura = 0;
 int leitura = 0;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600); 
+
+  dht_1.begin();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  leitura = digitalRead(tcrt);
-  //temperatura = ((5.0/1023) * leitura) * 100;
-  Serial.print("Presença: ");
-  Serial.println(leitura);
-  delay(2000);
+  
+  float umidade = dht_1.readHumidity();
+  float temperatura = dht_1.readTemperature();
+  Serial.print(umidade);
+  Serial.println(";");
+  Serial.print(temperatura);
+  Serial.println(";");
+
+  float leituraldr = analogRead(ldr);
+  Serial.print(leituraldr);
+  Serial.println(";");
+
+  float leituralm35 = analogRead(lm35);
+  float temperaturalm = ((5.0/1023) * leituralm35) * 100;
+  Serial.print(leituralm35);
+  Serial.println(";");
+
+  float leiturachave = digitalRead(tcrt);
+  Serial.print(leiturachave);
+  Serial.println(";");
+  delay(1000);
 }
