@@ -1,121 +1,12 @@
-* {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border: 1px rgba(0, 0, 0, 0.2);
-}
 
-body {
-    margin: 0;
-}
 
 /* --------------------- COMEÇO DA NAVBAR -------------------- */
 
-.header {
-    /*padding empurra os elementos para dentro */
-    display: flex;
-    height: 70px;
-    border-bottom: 1.5px solid #444f6b;
-}
 
-.header .container {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-
-.projeto {
-    width: 450px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    font-size: 17px;
-}
-
-.header ul #aqui a {
-    font-weight: 900;
-    color: #466587;
-}
-
-.usuario {
-    width: 180px;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    color: rgb(0, 0, 0);
-    font-size: 17px;
-    align-items: center;
-}
-
-.header .container .usuario .cadastro {
-    width: 30px;
-    margin-right: 5px;
-}
-
-.header .container .usuario .login {
-    width: 28px;
-    margin-right: 5px;
-}
-
-.header .container .logo .imagem_logo {
-    width: 70px;
-    animation-name: slide;
-    animation-duration: 3s;
-    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
-    transform: translateX(-20px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
-}
-
-.header .container .logo .frase_logo {
-    width: 150px;
-    height: 25px;
-    animation-name: slide;
-    animation-duration: 3s;
-    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
-    transform: translateX(-20px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.li_cadastro {
-    margin-right: 30px;
-}
-
-a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    position: relative;
-}
-
-.projeto a::after{ /* after adiciona um elemento depois do a (link)*/
-    content: " ";
-    width: 0;
-    height: 2px;
-    background-color: #3f6084;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in-out;
-    margin-top: 6px;
-}
-
-.projeto a:hover::after {
-    width: 100%;
-}
 
 /* ------------------------ FIM DA NAVBAR ------------------------ */
 
 /* ------------------------ COMEÇO DO BANNER -------------------------- */
-
-.container {
-    display: flex;
-    width: 80%;
-    margin: auto;
-}
-
 .banner {
     background-image: url(assets/imgs/fundo.png);
     background-size: cover;

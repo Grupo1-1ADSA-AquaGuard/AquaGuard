@@ -1,34 +1,25 @@
-* {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-
-.bannerProjeto {
+.projeto {
     background-image: url(assets/imgs/fundo.png);
     background-size: cover;
     height: auto;
-    
 }
 
-.bannerProjeto .container {
-    padding: 4%;
-    display: flex;
+.projeto .container {
     justify-content: center;
-    margin: auto;
+    align-items: center;
+    height: 600px;
 }
 
-.bannerProjeto .container .blocoTextos{
+.blocoTextos{
     display: flex;
     justify-content: space-evenly;
-    align-self: center;
-    animation-name: slide;
+    /* animation-name: slide;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    transform: translateX(-50px); 
+    transform: translateX(-50px);  */
 }
 
-.bannerProjeto .container .blocoTextos .bloco{
-
+.bloco{
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -37,24 +28,23 @@
     animation-name: slide;
     animation-duration: 1s;
     animation-fill-mode: forwards; 
-
 }
 
-.bannerProjeto .container .blocoTextos .bloco img{
+.projeto .container .blocoTextos .bloco img{
     width: 60px;
 }
-.bannerProjeto .container .blocoTextos .bloco p {
+.projeto .container .blocoTextos .bloco p {
     font-size: 16px;
     text-align: justify;
     color:#444f6b;
  }
 
- .bannerProjeto .container .blocoTextos .bloco b {
+ .projeto .container .blocoTextos .bloco b {
     font-size: 16px;
     font-weight: 1500;
  }
 
- .bannerProjeto .container .blocoTextos .bloco h2 {
+ .projeto .container .blocoTextos .bloco h2 {
     color:#444f6b;
  }
 

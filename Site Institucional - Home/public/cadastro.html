@@ -4,55 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/imgs/logo-nova.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="style_header.css">
+    <link rel="stylesheet" href="style_login.css">
     <title>Cadastre-se</title>
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="logo">
-                <img class="imagem_logo" src="assets/imgs/logo-nova.png" alt="Logo">
-                <img class="frase_logo" src="assets/imgs/logo-frase.png" alt="Logo">
+                <img class="imagem_logo" src="assets/imgs/logo-nova.png">
+                <img class="frase_logo" src="assets/imgs/logo-frase.png">
             </div>
-            <ul class="projeto">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Projeto</a></li>
-                <li><a href="https://github.com/Grupo7-1ADSA-AquaGuard">Sobre Nós</a></li>
+            <ul class="navbar">
+                <li ><a href="index.html">Home</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="sobre_nos.html">Sobre Nós</a></li>
                 <li><a href="#">Calculadora</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
             <ul class="usuario">
-                <img class="cadastro" src="assets/imgs/cadastro.png" alt=""><li class="li_cadastro"><a href="#">Cadastro</a></li>
-                <img class="login" src="assets/imgs/login.png" alt=""><li id="aqui" class="li_cadastro"><a href="login.html">Login</a></li>
+                <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
+                <li id="aqui" class="li_cadastro"><a href="#">Cadastro</a></li>
+                <img class="login" src="assets/imgs/login.png" alt="">
+                <li class="li_cadastro"><a href="login.html">Login</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="banner">
+    <div class="banner_cadastro">
         <div class="container">
             <div class="textos">
                 <h1>Bem Vindo(a) ao AquaGuard! <br> Cadastre sua empresa e proteja <br> seu patrimônio de alagamentos</h1>
             </div>
 
             <div class="card">
-                    <div class="campo">
-                        <h2>Nome da empresa</h2>
-                        <input id="inp_nome_empresa">
-                    </div>
-                    <div class="campo">
-                        <h2>CNPJ</h2>
-                        <input type="text" id="inp_cnpj" maxlength="14" placeholder="apenas números">
-                    </div>
-                    <div class="campo">
-                        <h2>E-mail da empresa</h2>
-                        <input type="email" id="inp_email_empresa">
-                    </div>
-                    <div class="campo">
-                        <h2>Senha:</h2>
-                        <input type="password" id="inp_senha" placeholder="letras e números">
-                    </div>
-                    <div id="msg_erro"></div>
+                <div class="campo">
+                    <h2>Nome da empresa</h2>
+                    <input id="inp_nome_empresa">
+                </div>
+                <div class="campo">
+                    <h2>CNPJ</h2>
+                    <input type="text" id="inp_cnpj" maxlength="14" placeholder="apenas números">
+                </div>
+                <div class="campo">
+                    <h2>E-mail da empresa</h2>
+                    <input type="email" id="inp_email_empresa">
+                </div>
+                <div class="campo">
+                    <h2>Senha:</h2>
+                    <input type="password" id="inp_senha" placeholder="letras e números">
+                </div>
+                <div id="msg_erro"></div>
                 <button onclick="cadastrar()">Cadastrar</button>
                 <p>Já possui uma conta? <a href="login.html" id="link_conta">Conecte-se</a></p>
             </div>

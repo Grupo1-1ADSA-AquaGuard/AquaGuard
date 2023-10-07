@@ -1,6 +1,43 @@
-.banner .container {
-    justify-content: space-around;
-    margin-inline: 10%;
+
+.banner_login{
+    height: 450px;
+    display: flex;
+    align-items: center;
+    background-image: url(assets/imgs/fundo.png);
+    background-size: cover;
+    
+}
+
+.banner_login .container {
+    flex-direction: column;
+    align-items: center;
+    /* margin-inline: 10%; */
+}
+
+.banner_cadastro{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    background-image: url(assets/imgs/fundo.png);
+    background-size: cover;
+}
+
+.banner_cadastro .container {
+    flex-direction: column;
+    align-items: center;
+    /* margin-inline: 10%; */
+}
+
+.textos {
+    display: flex;
+    justify-content: center;
+    color: #444f6b;
+    font-weight: 500;
+    text-align: center;
+    /* animation-name: slide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transform: translateX(-50px); */
 }
 
 .card {
@@ -9,27 +46,22 @@
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-
     border: 2px solid #444f6b;
     display: flex;
     flex-direction: column;
     height: fit-content;
     width: 400px;
     justify-content: center;
-    animation-name: slide;
+    align-items: center; 
+    margin-top: 50px;
+    /* animation-name: slide;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    transform: translateX(50px);
-    align-items: center;
+    transform: translateX(50px);*/
 }
 
-.textos {
-    color: #444f6b;
-    font-weight: 500;
-    animation-name: slide;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transform: translateX(-50px);
+.banner_login .card{
+    width: 300px;
 }
 
 .container button {
@@ -41,6 +73,7 @@
     width: 30%;
     cursor: pointer;
     align-self: center;
+    margin-bottom: 10px;
 }
 
 .campo {

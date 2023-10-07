@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contate-nos</title>
+    <link rel="stylesheet" href="style_header.css">
+    <link rel="stylesheet" href="style_contato.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="imagem_logo" src="assets/imgs/logo-nova.png">
+                <img class="frase_logo" src="assets/imgs/logo-frase.png">
+            </div>
+            <ul class="navbar">
+                <li ><a href="index.html">Home</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="sobre_nos.html">Sobre Nós</a></li>
+                <li><a href="#">Calculadora</a></li>
+                <li id="aqui"><a href="#">Contato</a></li>
+            </ul>
+            <ul class="usuario">
+                <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
+                <li class="li_cadastro"><a href="cadastro.html">Cadastro</a></li>
+                <img class="login" src="assets/imgs/login.png" alt="">
+                <li class="li_cadastro"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contato">
+        <div class="container">
+            <div class="formulario">
+                <h1>ENTRE EM CONTATO</h1>
+                <p>Preencha as informações abaixo com sua requisição</p>
+                <div class="mensagem">
+                    <input placeholder="Nome" class="campos" type="text">
+                    <input placeholder="Rua" class="campos" type="text">
+                   
+                    <div id="campos_cidade_cep">
+                        <input placeholder="Cidade" id="campo_cidade" type="text">
+                        <input placeholder="CEP" id="campo_cep" type="text">
+                    </div>
+
+                    <input placeholder="Telefone" class="campos" type="text">
+                    <input placeholder="E-mail" class="campos" type="text">
+                    <input placeholder="Corpo da Mensagem" class="campos" type="text">
+                </div>
+
+                <div class="upload_arquivo">
+                    <label for="campo_upload_arquivo"><img src="assets/imgs/contato_page/icon_upload.png">Suba aqui seu arquivo</label>
+                    <input id="campo_upload_arquivo" type="file">
+                </div>
+
+                <p>Anexar arquivo. O tamanho não deve exceder 10MB.</p>
+
+                <div class="termos_de_uso">
+                    <input id="input_termos_de_uso" type="checkbox">
+                    <p>Eu li e concordo com os <u>termos de uso.</u></p>
+                </div>
+
+                <button id="button_enviar">ENVIAR</button>
+
+                <div class="telefone_email">
+                    <img src="assets/imgs/contato_page/ligação.png">
+                    <div>
+                        <p>Telefone</p>
+                        <p>(11) 12345-6789</p>
+                    </div>
+                <img src="assets/imgs/contato_page/mensagem.png">
+                    <div>
+                        <p>Telefone</p>
+                        <p>(11) 12345-6789</p>          
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mapa">
+                <a href="https://maps.app.goo.gl/JddWkjRV1XPdiDCe6">
+                    <img src="assets/imgs/contato_page/mapa.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
