@@ -1,0 +1,92 @@
+*{
+    font-family: Arial;
+}
+
+body {
+    margin: 0px;
+    background: white;
+}
+
+.footer {
+    height: 50px;
+    width: 100%;
+    background-color: #F0F4FA;
+    
+}
+
+.footer .container {
+    display: flex;
+    width: 90%; 
+    flex-direction: row;
+    
+}
+.footer .container .lateralTexto {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-right: 40%;
+    padding-left: 5%;
+}
+
+.footer .container .lateralTexto h3 {
+    color: #3F6084;
+    font-size: 8px;
+    margin: 4px 4px;
+}
+
+.footer .container .lateralTexto h4 {
+    color: #3F6084;
+    font-size: 6px;
+    margin: 1px 5px;
+}
+
+.footer .container .meioTexto {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.footer .container .meioTexto img {
+    width: 10px;
+    
+}
+
+.footer .container .meioTexto .imgs {
+    margin: 5px 4px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.footer .container .meioTexto .textos {
+    display: flex;
+    justify-items: center;
+    
+}
+.footer .container .meioTexto .textos h5 {
+    font-size: 6px;
+    margin: 1px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3F6084;
+}
+
+.footer .container .meioTexto .separacao {
+    color:#3F6084;
+    margin: 1px 3px;
+}
+
+.footer .container .meioTexto .separacao h2 {
+    color:#3F6084;
+    font-size: 15px;
+    margin: 1px 1px;
+}
+
+.footer .container .meioTexto .version {
+    color:#3F6084;
+    font-size: 4px;
+    display: flex;
+    margin: 1px 5px;
+    justify-content: center;
+}
