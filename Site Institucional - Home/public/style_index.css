@@ -1,11 +1,5 @@
 
 
-/* --------------------- COMEÇO DA NAVBAR -------------------- */
-
-
-
-/* ------------------------ FIM DA NAVBAR ------------------------ */
-
 /* ------------------------ COMEÇO DO BANNER -------------------------- */
 .banner {
     background-image: url(assets/imgs/fundo.png);
@@ -22,14 +16,13 @@
     font-size: 36px;
     color: #444f6b;
     width: 320px;
+    margin-bottom: 13px;
     font-weight: 500;
     animation-name: slide;
     animation-duration: 3s;
     animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
     transform: translateX(-50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
 }
-
-
 
 .banner .container .textos .botao {
     cursor: pointer;
