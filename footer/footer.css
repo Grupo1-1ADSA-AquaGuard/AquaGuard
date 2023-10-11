@@ -7,64 +7,67 @@ body {
     background: white;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
 .footer {
-    height: 50px;
+    height: 70px;
     width: 100%;
     background-color: #F0F4FA;
-    
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
 }
 
 .footer .container {
     display: flex;
-    width: 90%; 
-    flex-direction: row;
-    
+    justify-content: space-between;    
 }
 .footer .container .lateralTexto {
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-right: 40%;
-    padding-left: 5%;
+    justify-content: center;
 }
 
 .footer .container .lateralTexto h3 {
     color: #3F6084;
-    font-size: 8px;
+    font-size: 12px;
     margin: 4px 4px;
 }
 
 .footer .container .lateralTexto h4 {
     color: #3F6084;
-    font-size: 6px;
+    font-size: 10px;
     margin: 1px 5px;
 }
 
 .footer .container .meioTexto {
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
 }
 
-.footer .container .meioTexto img {
-    width: 10px;
-    
+.footer .container img {
+    width: 20px;
 }
 
-.footer .container .meioTexto .imgs {
-    margin: 5px 4px;
+.footer .container .imgs {
+    margin: 15px 4px;
     display: flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-evenly; 
+    width: 80px;
 }
 
 .footer .container .meioTexto .textos {
     display: flex;
     justify-items: center;
-    
+    flex-direction: column;
 }
 .footer .container .meioTexto .textos h5 {
-    font-size: 6px;
+    font-size: 10px;
     margin: 1px 3px;
     display: flex;
     align-items: center;
@@ -72,20 +75,11 @@ body {
     color: #3F6084;
 }
 
-.footer .container .meioTexto .separacao {
-    color:#3F6084;
-    margin: 1px 3px;
-}
 
-.footer .container .meioTexto .separacao h2 {
-    color:#3F6084;
-    font-size: 15px;
-    margin: 1px 1px;
-}
 
 .footer .container .meioTexto .version {
     color:#3F6084;
-    font-size: 4px;
+    font-size: 6px;
     display: flex;
     margin: 1px 5px;
     justify-content: center;
