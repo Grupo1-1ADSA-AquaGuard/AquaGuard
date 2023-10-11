@@ -1,12 +1,6 @@
-*{
-    font-family: Arial;
-}
 
-body {
-    margin: 0px;
-    background: white;
-}
 
+/* ÍNICIO FOOTER */
 .container {
     width: 80%;
     margin: auto;
@@ -84,3 +78,5 @@ body {
     margin: 1px 5px;
     justify-content: center;
 }
+
+/* FINAL FOOTER */
