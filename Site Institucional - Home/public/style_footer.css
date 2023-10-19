@@ -55,12 +55,12 @@
     width: 80px;
 }
 
-.footer .container .meioTexto .textos {
+.footer .container .meioTexto .textosF {
     display: flex;
     justify-items: center;
     flex-direction: column;
 }
-.footer .container .meioTexto .textos h5 {
+.footer .container .meioTexto .textosF h5 {
     font-size: 10px;
     margin: 1px 3px;
     display: flex;
