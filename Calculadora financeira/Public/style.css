@@ -130,6 +130,15 @@ a:hover {
     font-size: 18px;
 }
 
+.formulario .selectEstados {
+    width: 120px;
+    height: 35px;
+    padding: 7px;
+    border-radius: 20px;
+    border: 1px solid #444f6b;
+    font-size: 15px;
+}
+
 .formulario input{
     width: 250px;
     height: 20px;
