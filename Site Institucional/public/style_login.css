@@ -1,6 +1,5 @@
-
 .banner_login{
-    height: 667px;
+    height: 550px;
     display: flex;
     align-items: center;
     background-image: url(assets/imgs/fundo.png);
@@ -9,9 +8,8 @@
 }
 
 .banner_login .container {
-    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    /* margin-inline: 10%; */
 }
 
 .banner_cadastro{
@@ -23,9 +21,8 @@
 }
 
 .banner_cadastro .container {
-    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    /* margin-inline: 10%; */
 }
 
 .textos {
@@ -34,10 +31,6 @@
     color: #444f6b;
     font-weight: 500;
     text-align: center;
-    /* animation-name: slide;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transform: translateX(-50px); */
 }
 
 .card {
@@ -54,10 +47,6 @@
     justify-content: center;
     align-items: center; 
     margin-top: 50px;
-    /* animation-name: slide;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transform: translateX(50px);*/
 }
 
 .banner_login .card{
