@@ -82,13 +82,18 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
     font-size: 20px;
     color: #4f8296;
+} */
+
+.header .container .projeto #aqui{
+    font-weight: 900;
+    color: #466587;
 }
 
 .banner {
-    background-image: url(Assets/imagens/fundo.png);
+    background-image: url(assets/imgs/fundo.png);
     background-size: cover;
     height: 1100px;
 }
