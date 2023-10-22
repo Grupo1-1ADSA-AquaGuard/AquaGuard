@@ -96,10 +96,9 @@ a:hover {
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
+} 
 
-#titulo {
+.titulo {
     display: flex;
     justify-content: center;
     color: rgb(7, 14, 77);
@@ -107,12 +106,16 @@ a:hover {
     font-weight: 900;
 }
 
-#subtitulo {
+.subtitulo {
     display: flex;
     justify-content: center;
     color: rgb(7, 14, 77);
     font-size: 22px;
     font-weight: 800;
+}
+
+.caixa_formulario {
+    margin-left: 100px;
 }
 
 .formulario{
@@ -130,15 +133,6 @@ a:hover {
     font-size: 18px;
 }
 
-.formulario .selectEstados {
-    width: 120px;
-    height: 35px;
-    padding: 7px;
-    border-radius: 20px;
-    border: 1px solid #444f6b;
-    font-size: 15px;
-}
-
 .formulario input{
     width: 250px;
     height: 20px;
@@ -149,7 +143,7 @@ a:hover {
 
 }
 
-.formulario button{
+.formulario .button_calcular{
     width: 200px;
     height: 50px;
     border-radius: 15px;
@@ -165,6 +159,40 @@ a:hover {
     background-color: rgb(46, 64, 129);
 }
 
+.caixa_formulario #resultado{
+    display: flex;
+    justify-content: end;
+}
+
+.resultado{
+    margin-left: 50px;
+    width: 850px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #f0f4fa;
+}
+
+.button{
+    background-color: #58799d;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+    text-align: center;
+    margin-left: 380px;
+}
+
+.aquaguard{
+    font-size: 30px;
+    color: #447AA0;
+    font-weight: 1000;
+}
+
 #div_prejuizo{
     font-size: 15px;
     margin: 15px;
@@ -173,6 +201,14 @@ a:hover {
 #div_prejuizo span{
     font-style: italic;
     font-weight: bold;
+}
+
+select#select_estado {
+    width: 140px;
+    height: 35px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 
