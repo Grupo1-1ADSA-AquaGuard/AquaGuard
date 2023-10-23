@@ -1,5 +1,5 @@
 .banner_login{
-    height: 550px;
+    height: 600px;
     display: flex;
     align-items: center;
     background-image: url(assets/imgs/fundo.png);
@@ -46,7 +46,6 @@
     width: 400px;
     justify-content: center;
     align-items: center; 
-    margin-top: 50px;
 }
 
 .banner_login .card{
