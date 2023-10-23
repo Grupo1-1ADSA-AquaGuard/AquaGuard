@@ -1,15 +1,17 @@
-
-
 /* ------------------------ COMEÇO DO BANNER -------------------------- */
 .banner {
     background-image: url(assets/imgs/fundo.png);
     background-size: cover;
+    height: 600px;
 }
 
 .banner .container {
     justify-content: center;
     align-items: center;
-    height: 667px;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    height: 100%;
 }
 
 .banner .container .textos p {
@@ -20,8 +22,10 @@
     font-weight: 500;
     animation-name: slide;
     animation-duration: 3s;
-    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
-    transform: translateX(-50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+    animation-fill-mode: forwards;
+    /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-50px);
+    /* define a posíção inicial no eixo x, para fazer a animação de slide  */
 }
 
 .banner .container .textos .botao {
@@ -39,8 +43,10 @@
     text-decoration: underline;
     animation-name: slide;
     animation-duration: 3s;
-    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
-    transform: translateX(-50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+    animation-fill-mode: forwards;
+    /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(-50px);
+    /* define a posíção inicial no eixo x, para fazer a animação de slide  */
 }
 
 
@@ -53,10 +59,16 @@
     opacity: 0;
     animation-name: slide;
     animation-duration: 3s;
-    animation-fill-mode: forwards; /* deixa o resultado da animação permanentemente na tela */
-    transform: translateX(50px); /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+    animation-fill-mode: forwards;
+    /* deixa o resultado da animação permanentemente na tela */
+    transform: translateX(50px);
+    /* define a posíção inicial no eixo x, para fazer a animação de slide  */
+    transition: width 2s;
 }
 
+.box img:hover {
+    width: 210px;
+}
 
 .banner .container .boxes {
     display: flex;
@@ -71,12 +83,58 @@
 
 /* ------------------------------- FIM DO BANNER ----------------------- */
 
+/* ------------------------------- INICIO DO PROJETO -------------------------- */
+#projeto {
+    background-color: #f0f4fa;
+    display: flex;
+    height: 600px;
+}
 
+#projeto .container {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    height: 100%;
+}
+
+.bloco {
+    background-color: #c9d2f1;
+    width: 280px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 40px;
+    animation: slide 3s forwards;
+    transform: translateX(-50px);
+}
+
+#projeto .container .bloco img {
+    width: 45px;
+}
+
+#projeto .container .bloco p {
+    font-size: 16px;
+    text-align: justify;
+    color: #444f6b;
+}
+
+#projeto .container .bloco b {
+    font-size: 16px;
+    font-weight: 1500;
+    color: #444f6b;
+}
+
+#projeto .container .bloco h2 {
+    color: #131c31;
+}
+/* ---------------------------------- FIM DO PROJETO --------------------------------------*/
 
 /* ---------------------------------- ÍNICIO DA ANIMAÇÃO ---------------------------------- */
 @keyframes slide {
 
-    from{
+    from {
         opacity: 0;
     }
 
