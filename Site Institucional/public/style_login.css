@@ -13,7 +13,7 @@
 }
 
 .banner_cadastro{
-    height: 700px;
+    height: 1000px;
     display: flex;
     align-items: center;
     background-image: url(assets/imgs/fundo.png);
@@ -100,4 +100,38 @@ input::-webkit-inner-spin-button {
 
 #entrar {
     margin-top: 20px;
+}
+
+/* -----------------switch */
+.container_switch{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.switch{
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid #58799D;
+}
+
+.seletor{
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+  border-radius: 100%;
+  background-color: #58799D;
+}
+
+#check{
+    display: none;
+}
+
+#check:checked ~ .seletor{
+  margin-left: 22px;
 }
