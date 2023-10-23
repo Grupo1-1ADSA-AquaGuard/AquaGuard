@@ -22,11 +22,9 @@ CREATE TABLE usuarioEmpresa (
 
 CREATE TABLE enderecoEmpresa(
 	id_endereco INT PRIMARY KEY AUTO_INCREMENT,
-    cep_empresa INT,
+    cep_empresa CHAR(8),
     logradouro_empresa VARCHAR(100),
     numero_empresa INT,
-    bairro_empresa VARCHAR (40),
-    municipio_empresa VARCHAR(40),
     complemento_empresa VARCHAR(20),
     fk_empresa INT,
     CONSTRAINT fkEmpresa FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_empresa)
@@ -74,7 +72,7 @@ select * from dadosEmpresa;
 INSERT INTO usuarioEmpresa VALUES
 (null, 'Maria Eduarda Guardião', 'maria.guardiao@sptech.school', '12@345', 7),
 (null, 'Heloisa Caires Salgado', 'heloisa.salgado@sptech.school', '5432@1', 6),
-(null, 'Kely Jássica', 'kely.alipaz@sptech.school', '@@67890', 5),
+(null, 'Kely Jéssica', 'kely.alipaz@sptech.school', '@@67890', 5),
 (null, 'Vitor Santos Tigre', 'vitor.tigre@sptech.school', '098_76_', 4),
 (null, 'Marcio Henrique', 'marcio.henrique@sptech.school', '2_345@6', 3),
 (null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school', '76_543#', 2),
@@ -82,17 +80,17 @@ INSERT INTO usuarioEmpresa VALUES
 (null, 'Jean Santos Rocha', 'jean.rocha@sptech.school', '@71415@', 1);
 select * from usuarioEmpresa;
 
-INSERT INTO enderecoEmpresa VALUES
-(null, 76873064, 'Avenida Urupá', 84, 'Boa Vista', 'Caruaru', 'A', 1),
-(null, 60192010, 'Rua Vilebaldo Aguiar', 74, 'Santa Lúcia', 'Rio Branco', 'B', 2),
-(null, 45822230, 'Rua São Lourenço', 17, 'Pedreira', 'Araraquara', 'C', 3),
-(null, 69900046, 'Rua Floriano Peixoto', 365, 'Rio Branco', 'Pricumã', null, 4),
-(null, 69900400, 'Rua Alagoas', 451, 'Bosque', 'Asa Norte', null, 5),
-(null, 49067246, 'Porto Dantas', 215, 'Fazendinha', 'Eldorado', 'F', 6),
-(null, 81200080, 'Rua João Kososki', 58, 'Operário', 'Glória', null, 7);
+INSERT INTO enderecoEmpresa(id_endereco, cep_empresa, logradouro_empresa, numero_empresa, complemento_empresa, fk_empresa) VALUES
+(null, '76873064', 'Avenida Urupá', 34, 'A', 1),
+(null, '60192010', 'Rua Vilebaldo Aguiar', 555, 'B', 2),
+(null, '45822230', 'Rua São Lourenço', 784, 'C', 3),
+(null, '69900046', 'Rua Floriano Peixoto', 102, null, 4),
+(null, '69900400', 'Rua Alagoas', 215, null, 5),
+(null, '49067246', 'Porto Dantas', 28, 'F', 6),
+(null, '81200080', 'Rua João Kososki', 99, null, 7);
 select * from enderecoEmpresa;
 
-insert sensor(tipo, marca, statusSensor, fk_endereco) values
+INSERT INTO sensor(tipo, marca, statusSensor, fk_endereco) VALUES
 ('Chave', 'TCRT5000', 'Ativo', 50),
 ('Chave', 'TCRT5000', 'Ativo', 50),
 ('Chave', 'TCRT5000', 'Manutenção', 51),
@@ -109,7 +107,7 @@ insert sensor(tipo, marca, statusSensor, fk_endereco) values
 ('Chave', 'TCRT5000', 'Ativo', 56);
 select * from sensor;
 
-insert into alertas values
+INSERT INTO alertas VALUES
 (null, 'Nível de água normal'),
 (null, 'Nível de água subindo, atenção!'),
 (null, 'Nível de água passou do segundo sensor!!');
@@ -171,4 +169,3 @@ SELECT s.tipo as TipoSensor,
  JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
  JOIN enderecoEmpresa e ON s.fk_endereco = e.id_endereco
  JOIN alertas a ON a.id_alerta = ls.fk_alerta;
-
