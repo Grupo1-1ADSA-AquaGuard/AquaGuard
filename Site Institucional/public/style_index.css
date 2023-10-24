@@ -88,6 +88,7 @@
     background-color: #f0f4fa;
     display: flex;
     height: 550px;
+    box-shadow: 0px -2px 5px #636b80;
 }
 
 #projeto .container {
@@ -108,6 +109,14 @@
     padding: 40px;
     animation: slide 3s forwards;
     transform: translateX(-50px);
+    box-shadow: 3px 5px 5px #636b80;
+    border-top-right-radius: 100px 30px;
+    border-bottom-left-radius: 100px 30px;
+    transition: height 1s;
+}
+
+.bloco:hover {
+    height: 55vh;
 }
 
 #projeto .container .bloco img {

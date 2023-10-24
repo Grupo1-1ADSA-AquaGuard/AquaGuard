@@ -12,7 +12,7 @@
     background-color: #F0F4FA;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    box-shadow: 2px -2px 2px #728599;
 }
 
 .footer .container {
