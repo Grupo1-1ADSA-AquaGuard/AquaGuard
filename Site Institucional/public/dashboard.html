@@ -1,15 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style_header.css"> -->
+    <link rel="stylesheet" href="style_dashboard.css">
+    <title>Dashboard</title>
+    <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
 
-    <div id="dashboard" style="background-color: cornflowerblue; display: flex; justify-content: center; width: 100%; height: 100vh;">
-        Dasboard
+<body>
+    <!-- <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="imagem_logo" src="assets/imgs/logo-nova.png">
+                <img class="frase_logo" src="assets/imgs/logo-frase.png">
+            </div>
+            <ul class="navbar">
+                <li id="aqui"><a href="#">Home</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="sobre_nos.html">Sobre Nós</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <ul class="usuario">
+                <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
+                <li class="li_cadastro"><a href="cadastro.html">Cadastro</a></li>
+                <img class="login" src="assets/imgs/login.png" alt="">
+                <li class="li_cadastro"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div> -->
+
+    <div class="container" id="left_bar">
+        <div class="items">
+            <ul class="items_bar">
+                <li>
+                    <h2><a href="#" id="aqui"><img src="assets/imgs/home_icon.png"> Dashboard</a></h2>
+                </li>
+                <li>
+                    <h2><a href="contato.html"><img src="assets/imgs/contato.png" alt=""> Contato</a></h2>
+                </li>
+            </ul>
+        </div>
+        <div class="items">
+            <ul class="items_bar">
+                <h2>Filtrar</h2>
+                <li>Data</li>
+                <li><input type="date"></li><br>
+                <li>Sensor</li>
+                <li><select name="sensores" id="sensores">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select></li>
+            </ul>
+        </div>
+        <div class="items">
+            <h2 class="items_bar"><a href="#"><img src="assets/imgs/settings.png"> Configurações</a></h2>
+        </div>
+        <div class="items">
+            <div class="items_bar" id="user">
+                <h2 id="user_profile" class="items_bar"><a href="#"><img src="assets/imgs/user_icon.png"> Nome</a></h2>
+                <h2 id="exit_icon"><a href="cadastro.html"><img id="exit_img" src="assets/imgs/exit_icon.png"></a></h2>
+            </div>
+        </div>
     </div>
-    
+
+    <div class="container" id="dashboard">
+        <h2>Dashboard</h2>
+
+        <div id="linha">
+
+            <div class="chart-container" id="nivelAgua">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="chart-container" id="numeros">
+                <div id="sinalSensor">A água ultrapassou o 2° sensor!</div>
+                <ul>
+                    <li>
+                        <h2>Precipitação</h2>
+                    </li>
+                    <li>Hoje</li>
+                    <li>250mm <img src="assets/imgs/rain.png"> &uarr; Aumento</li>
+                </ul>
+
+                <ul>
+                    <li>Último alagamento</li>
+                    <li>150mm</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="linha2">
+            <div class="chart-container" id="sensoresAtivados">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+
+
+    </div>
 </body>
+
 </html>
+
+<script>
+
+    const labels = [
+        '20:00',
+        '20:15',
+        '20:30',
+        '20:45',
+        '21:00',
+        '21:15',
+        '21:30',
+        '21:45',
+        '22:00',
+
+    ];
+
+    const labels2 = [
+        '23:30',
+        '23:45',
+        '00:00',
+        '00:15',
+        '00:30',
+        '00:45',
+        '01:00',
+        '01:15',
+        '01:30',
+        '01:45',
+        '02:00',
+        '02:15',
+        '02:30',
+        '02:45',
+        '03:00',
+
+    ]
+
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de água',
+            backgroundColor: 'rgb(68, 122, 160)',
+            borderColor: 'rgb(68, 122, 160)',
+            data: [0, 3, 5, 8, 10, 11, 13, 14, 17, 18]
+        }]
+
+
+
+
+    };
+
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Sensor1',
+            backgroundColor: 'rgb(65, 105, 225)',
+            borderColor: 'rgb(65, 105, 225)',
+            data: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        },
+        {
+            label: 'Sensor2',
+            backgroundColor: 'rgb(255,165,0)',
+            borderColor: 'rgb(255,165,0)',
+            data: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        }]
+
+
+
+
+    };
+
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+
+</script>
+
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>

@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+}
+
+body {
+    background-image: url(assets/imgs/fundo.png);
+    background-size: cover;
+    display: flex;
+}
+
+#left_bar {
+    padding: 25px;
+    height: 89.9vh;
+    width: 200px;
+    /* display: flex; */
+    display: grid;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.items {
+    text-align: center;
+}
+
+ul {
+    margin-block: 20px;
+    list-style: none;
+}
+
+.container .items .items_bar input {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #78a3c2;
+}
+
+.container .items .items_bar select {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #78a3c2;
+}
+
+#user {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 20px;
+    vertical-align: -15%;
+}
+
+li {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+a::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #3f6084;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+    margin-top: 6px;
+}
+a:hover::after {
+    width: 100%;
+}
+
+#aqui {
+    color: #3f6084;
+}
+
+
+#dashboard {
+    border-radius: 15px;
+    background-color: rgb(228, 228, 228);
+    width: 75vw;
+    height: 90vh;
+    padding: 10px;
+}
+
+
+
+#dashboard {
+    align-self: center;
+    justify-self: center;
+    margin: 8px;
+    padding: 10px;
+}
+
+#dashboard h2 {
+    font-size: larger;
+    text-align: center;
+    margin: 1px;
+}
+
+#linha {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -4px 4px 0px 2px rgba(0,0,0,0.1);
+    height: 250px;
+    padding: 2%;
+}
+
+#sinalSensor {
+    background-color: rgb(255, 96, 96);
+    width: 75%;
+    height: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 25px;
+    
+}
+
+#nivelAgua {
+    width: 50%;
+    height: min-content;
+}
+
+#numeros {
+    width: 40%;
+    height: 256px;
+}
+
+#sensoresAtivados {
+    width: 96%;
+    height: 200px;
+}
+
+#linha2 {
+    margin-top: 20px;
+}
+
+#numeros {
+    font-weight: bolder;
+}
