@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
     <!-- <div class="header">
         <div class="container">
             <div class="logo">
@@ -59,8 +60,8 @@
         <div class="items">
             <h2 class="items_bar"><a href="#"><img src="assets/imgs/settings.png"> Configurações</a></h2>
         </div>
-        <div class="items">
-            <div class="items_bar" id="user">
+        <div class="items" id="user">
+            <div class="items_bar" id="daora">
                 <h2 id="user_profile" class="items_bar"><a href="#"><img src="assets/imgs/user_icon.png"> Nome</a></h2>
                 <h2 id="exit_icon"><a href="cadastro.html"><img id="exit_img" src="assets/imgs/exit_icon.png"></a></h2>
             </div>
@@ -70,35 +71,22 @@
     <div class="container" id="dashboard">
         <h2>Dashboard</h2>
 
-        <div id="linha">
+        <div class="linha">
 
             <div class="chart-container" id="nivelAgua">
                 <canvas id="myChart"></canvas>
             </div>
             <div class="chart-container" id="numeros">
-                <div id="sinalSensor">A água ultrapassou o 2° sensor!</div>
-                <ul>
-                    <li>
-                        <h2>Precipitação</h2>
-                    </li>
-                    <li>Hoje</li>
-                    <li>250mm <img src="assets/imgs/rain.png"> &uarr; Aumento</li>
-                </ul>
 
-                <ul>
-                    <li>Último alagamento</li>
-                    <li>150mm</li>
-                </ul>
             </div>
 
         </div>
 
-        <div id="linha2">
-            <div class="chart-container" id="sensoresAtivados">
+        <div class="linha">
+            <div class="chart-container" id="sensoresAtivados" style="width: 88%;">
                 <canvas id="myChart2"></canvas>
             </div>
         </div>
-
 
     </div>
 </body>
@@ -117,25 +105,28 @@
         '21:30',
         '21:45',
         '22:00',
+        '22:15',
+        '22:30',
+
 
     ];
 
     const labels2 = [
         '23:30',
+        '23:35',
+        '23:40',
         '23:45',
+        '23:50',
+        '23:55',
         '00:00',
+        '00:05',
+        '00:10',
         '00:15',
+        '00:20',
+        '00:25',
         '00:30',
-        '00:45',
-        '01:00',
-        '01:15',
-        '01:30',
-        '01:45',
-        '02:00',
-        '02:15',
-        '02:30',
-        '02:45',
-        '03:00',
+        '00:35',
+        '00:40',
 
     ]
 
@@ -146,7 +137,7 @@
             label: 'Nível de água',
             backgroundColor: 'rgb(68, 122, 160)',
             borderColor: 'rgb(68, 122, 160)',
-            data: [0, 3, 5, 8, 10, 11, 13, 14, 17, 18]
+            data: [0, 3, 5, 8, 10, 11, 13, 14, 17, 18, 77, 66]
         }]
 
 
@@ -161,13 +152,13 @@
             label: 'Sensor1',
             backgroundColor: 'rgb(65, 105, 225)',
             borderColor: 'rgb(65, 105, 225)',
-            data: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            data: [0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         },
         {
             label: 'Sensor2',
             backgroundColor: 'rgb(255,165,0)',
             borderColor: 'rgb(255,165,0)',
-            data: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            data: [0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
         }]
 
 
@@ -185,13 +176,16 @@
     const config2 = {
         type: 'bar',
         data: data2,
-        options: {}
+        options: { maintainAspectRatio: false }
     };
 
 </script>
 
 
 <script>
+    // var grafico2 = document.getElementById(myChart2).getContext('2d');
+    // myChart2.canvas.width = 1000;
+
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
