@@ -34,14 +34,14 @@
     </div>
 
     <div class="bannerCalculadora">
-        <div class="containerCalculadora">
+        <div id="containerCalculadora">
 
             <div class="caixa_formulario">
                 <p class="titulo"> SIMULADOR FINANCEIRO</p>
 
                 <div class="formulario">
-                    <p class="subtitulo"> Simule aqui resultados da nossa solução!</p> <br> <br>
-                    <span> Em qual estado sua empresa reside:</span> <br>
+                    <p class="subtitulo"> Simule aqui!<br> Veja o resultado da nossa solução!</p>
+                    <span> Em qual estado sua empresa reside:</span>
                     <select class="selectEstados" name="estados" id="select_estado">
                         <option disabled selected value="">Selecione</option>
                         <option value="AC">AC</option>
@@ -70,25 +70,18 @@
                         <option value="SP">SP</option>
                         <option value="SE">SE</option>
                         <option value="TO">TO</option>
-                    </select> <br><br>
+                    </select>
 
-                    <span>Já sofreu com algum alagamento? Se sim, nos conte quantas vezes:</span> <br>
-                    <input class="inputs" type="number" id="input_numeros_enchentes" placeholder="1" min="0"><br><br>
+                    <span>Já sofreu com algum alagamento?<br> Se sim, nos conte quantas vezes:</span>
+                    <input class="inputs" type="number" id="input_numeros_enchentes" placeholder="1" min="0">
 
-                    <span>Insira seu faturamento anual:</span><br>
-                    <input class="inputs" type="number" id="input_faturamento" placeholder="6500100"><br><br>
+                    <span>Insira seu faturamento anual:</span>
+                    <input class="inputs" type="number" id="input_faturamento" placeholder="6500100">
 
-                    <button class="button_calcular" onclick="anual()">Calcular Prejuízo</button><br>
+                    <button class="button_calcular" onclick="anual()">Calcular Prejuízo</button>
                 </div>
             </div>
-
-            <div class="solucao">
-                <div class="div_estado" id="div_prejuizo"></div>
-                <div class="div_estado" id="div_id_estado"></div>
-            </div>
-
-
-
+            <div id="caixa_formulario_resultado"></div>
         </div>
     </div>
 
@@ -96,7 +89,7 @@
         <div class="container">
             <div class="lateralTexto">
                 <h3>Mais sobre Aquaguard</h3>
-                <h4>Nosso Contato</h4>
+                <a href="contato.html"><h4>Nosso Contato</h4></a>
                 <h4>Faq's</h4>
             </div>
             <div class="imgs">
@@ -130,12 +123,10 @@
         var estado = select_estado.value;
         var frase_estado = '';
 
+
         if (qtd_enchentes == "" || faturamento == "") {
             alert("Informe Valores válidos")
         } else {
-
-
-
 
             if (qtd_enchentes > 0) {    // validar se quantidade de enchente < 0 ou >= 0
                 prejuizo_total *= qtd_enchentes;
@@ -255,16 +246,12 @@
                     alert(`Insira um estado válido!`);
                 }
 
-                div_prejuizo.innerHTML = `
-            <p class="titulo"></p>
-            <div class="caixa_formulario resultado">
-                
 
-                <p class="subtitulo aquaguard">
+                caixa_formulario_resultado.innerHTML = `
+                <div class="resultado">
+                <h3 class="subtitulo_aquaguard">
                     Aquaguard
-                    <hr>
-                </p>
-
+                </h3>
                 <p>
                             O Brasil, país tropical com grandes períodos de clima úmido, soma um prejuízo de 55,5 bilhões de reais causados pelas chuvas nos últimos 5 anos <span>(Fonte Métropoles)</span> e os supermercados, detentores das maiores cadeias de produtos perecíveis e alto fluxo de faturamento, são os mais atingidos <span>(Fonte São Paulo Agora)</span>.
                         </p>
@@ -277,13 +264,11 @@
                         <p>
                             Você deixaria de perder, <b> NO MÍNIMO R$${prejuizo_dias_fechado}</b> de faturamento com a reabertura do supermercado. De acordo com a APAS, isso representa uma economia de <b>R$${prejuizo_equipamentos.toFixed(2)}</b> em prejuízos financeiros. 
                         </p>
-                <button class="button">Fale conosco!</button><br>
-            </div>
+                <button class="button">Fale conosco!</button>
                 </div>
-
             `;
 
-
+            containerCalculadora.style.justifyContent = "space-evenly";
 
             }
         }
