@@ -30,14 +30,14 @@ CREATE TABLE enderecoEmpresa(
     CONSTRAINT fkEmpresa FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_empresa)
 ) AUTO_INCREMENT = 50;
 
-CREATE TABLE sensor (
+CREATE TABLE sensor(
 	id_sensor INT PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(45),
     marca VARCHAR(45),
     statusSensor VARCHAR(15),
-    fk_endereco INT,
+    fk_empresa INT,
 	CONSTRAINT chkStatus CHECK (statusSensor in ('Ativo', 'Inativo', 'Manutenção')),
-    CONSTRAINT fkEndereco FOREIGN KEY (fk_endereco) REFERENCES enderecoEmpresa(id_endereco)
+    CONSTRAINT fkEmp FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_Empresa)
 ) AUTO_INCREMENT = 100;
 
 CREATE TABLE alertas (
@@ -78,6 +78,7 @@ INSERT INTO usuarioEmpresa VALUES
 (null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school', '76_543#', 2),
 (null, 'Gabriel Henrique Barreto', 'gabriel.barreto@sptech.school', '89@012', 1),
 (null, 'Jean Santos Rocha', 'jean.rocha@sptech.school', '@71415@', 1);
+
 select * from usuarioEmpresa;
 
 INSERT INTO enderecoEmpresa(id_endereco, cep_empresa, logradouro_empresa, numero_empresa, complemento_empresa, fk_empresa) VALUES
@@ -90,21 +91,21 @@ INSERT INTO enderecoEmpresa(id_endereco, cep_empresa, logradouro_empresa, numero
 (null, '81200080', 'Rua João Kososki', 99, null, 7);
 select * from enderecoEmpresa;
 
-INSERT INTO sensor(tipo, marca, statusSensor, fk_endereco) VALUES
-('Chave', 'TCRT5000', 'Ativo', 50),
-('Chave', 'TCRT5000', 'Ativo', 50),
-('Chave', 'TCRT5000', 'Manutenção', 51),
-('Chave', 'TCRT5000', 'Manutenção', 51),
-('Chave', 'TCRT5000', 'Inativo', 52),
-('Chave', 'TCRT5000', 'Inativo', 52),
-('Chave', 'TCRT5000', 'Ativo', 53),
-('Chave', 'TCRT5000', 'Ativo', 53),
-('Chave', 'TCRT5000', 'Manutenção', 54),
-('Chave', 'TCRT5000', 'Manutenção', 54),
-('Chave', 'TCRT5000', 'Ativo', 55),
-('Chave', 'TCRT5000', 'Ativo', 55),
-('Chave', 'TCRT5000', 'Ativo', 56),
-('Chave', 'TCRT5000', 'Ativo', 56);
+INSERT INTO sensor(tipo, marca, statusSensor, fk_empresa) VALUES
+('Chave', 'TCRT5000', 'Ativo', 1),
+('Chave', 'TCRT5000', 'Ativo', 1),
+('Chave', 'TCRT5000', 'Manutenção', 2),
+('Chave', 'TCRT5000', 'Manutenção', 2),
+('Chave', 'TCRT5000', 'Inativo', 3),
+('Chave', 'TCRT5000', 'Inativo', 3),
+('Chave', 'TCRT5000', 'Ativo', 4),
+('Chave', 'TCRT5000', 'Ativo', 4),
+('Chave', 'TCRT5000', 'Manutenção', 5),
+('Chave', 'TCRT5000', 'Manutenção', 5),
+('Chave', 'TCRT5000', 'Ativo', 6),
+('Chave', 'TCRT5000', 'Ativo', 6),
+('Chave', 'TCRT5000', 'Ativo', 7),
+('Chave', 'TCRT5000', 'Ativo', 7);
 select * from sensor;
 
 INSERT INTO alertas VALUES
@@ -132,40 +133,44 @@ select * from leituraSensores;
 
 
 -- ------------------------------------------------------------------ SELECT -----------------------------------------------------------------------------------
-SELECT u.nome_usuario as Usuário, u.email_usuario as EmailUsuário, e.nome_empresa as Empresa, e.telefone_empresa as TelefoneEmpresa
+SELECT u.nome_usuario as Usuário, u.email_usuario as EmailUsuário, e.nome_empresa as Empresa, e.telefone_empresa as "Telefone Empresa"
   FROM usuarioEmpresa u JOIN dadosEmpresa e ON u.fk_empresa = e.id_empresa;
   
 SELECT u.nome_usuario as Usuário, u.email_usuario as EmailUsuário, e.nome_empresa as Empresa, e.telefone_empresa as TelefoneEmpresa
   FROM usuarioEmpresa u JOIN dadosEmpresa e ON u.fk_empresa = e.id_empresa where e.id_empresa = 1;
-    
-SELECT s.tipo as TipoSensor, 
+
+desc sensor;
+SELECT s.id_sensor as id,
+    s.tipo as TipoSensor, 
 	s.statusSensor as 'Status', 
     ls.leitura as Leitura, 
     ls.dt_atual as 'Data', 
     ls.fk_alerta as Alerta, 
-    e.fk_empresa as Empresa
- FROM sensor s 
- JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
- JOIN enderecoEmpresa e ON s.fk_endereco = e.id_endereco;
+    s.fk_empresa as Empresa
+    FROM sensor s  
+    JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
+    JOIN dadosEmpresa d ON s.fk_empresa = d.id_empresa;
+
+ desc sensor;
 
 SELECT s.tipo as TipoSensor, 
 	s.statusSensor as 'Status', 
     ls.leitura as Leitura, 
     ls.dt_atual as 'Data', 
     ls.fk_alerta as Alerta, 
-    e.fk_empresa as Empresa
+    s.fk_empresa as Empresa
  FROM sensor s 
  JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
- JOIN enderecoEmpresa e ON s.fk_endereco = e.id_endereco
- WHERE e.fk_empresa = 1;
+ JOIN dadosEmpresa e ON s.fk_empresa = e.id_empresa
+ WHERE s.fk_empresa = 1;
 
 SELECT s.tipo as TipoSensor, 
 	s.statusSensor as 'Status', 
     ls.leitura as Leitura, 
     ls.dt_atual as 'Data', 
     a.alerta_sensor as Alerta, 
-    e.fk_empresa as Empresa
+    s.fk_empresa as Empresa
  FROM sensor s 
  JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
- JOIN enderecoEmpresa e ON s.fk_endereco = e.id_endereco
+ JOIN dadosEmpresa e ON s.fk_empresa = e.id_empresa
  JOIN alertas a ON a.id_alerta = ls.fk_alerta;
