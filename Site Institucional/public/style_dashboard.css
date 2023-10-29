@@ -154,6 +154,21 @@ a:hover::after {
     width: 40%;
     height: 80%;
     font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.parts {
+    margin-block: 5px;
+    padding-block: 5px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+#kpi #alerta_kpi {
+    background-color: #ff0f0f;
+    border-radius: 4px;
 }
 
 #kpi .info_kpi {
@@ -161,6 +176,7 @@ a:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 40px;
 }
 
 .info_kpi .sensor_kpi {
@@ -172,10 +188,11 @@ a:hover::after {
 
 .info_kpi .manutencao_kpi {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+}
+
+.info_kpi .manutencao_kpi #manutencao {
+    font-family: monospace;
+    font-size: larger;
 }
 
 #sensoresAtivados {
@@ -185,14 +202,4 @@ a:hover::after {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size:medium;
 font-weight: bolder
-}
-
-.info_kpi .manutencao_kpi #text-manuteção{
-margin: 15px;
-font-weight:bold;
-}
-
-.info_kpi .manutencao_kpi #text-não-necessária{
-margin-top: 10px;
-font-weight: bolder;
 }
