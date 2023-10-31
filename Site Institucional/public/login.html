@@ -18,14 +18,12 @@
             </div>
             <ul class="navbar">
                 <li ><a href="index.html">Home</a></li>
-                <li><a href="projeto.html">Projeto</a></li>
-                <li><a href="sobre_nos.html">Sobre Nós</a></li>
                 <li><a href="calculadora.html">Calculadora</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
             <ul class="usuario">
                 <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
-                <li class="li_cadastro"><a href="cadastro_empresa.html">Cadastro</a></li>
+                <li class="li_cadastro"><a href="cadastro-empresa.html">Cadastro</a></li>
                 <img class="login" src="assets/imgs/login.png" alt="">
                 <li id="aqui" class="li_cadastro"><a href="#">Login</a></li>
             </ul>
@@ -34,28 +32,31 @@
 
     <div class="banner_login">
         <div class="container">
-            <div class="textos">
-                <h1>Olá de novo!</h1>
-            </div>
-            <div class="card">
-                <div class="container_switch">
-                    <p>Empresa</p>
-                    <label class="switch" for="check">
-                        <input type="checkbox" id="check">
-                        <div class="seletor"></div>
-                    </label>
-                    <p>Usuário</p>
+            <div id="formulario-login">
+                <div class="textos">
+                    <h1>Olá de novo!</h1>
+                    <img src="assets/imgs/Mobile login-pana.svg">
                 </div>
-                <div class="campo">
-                    <h2>Usuário:</h2>
-                    <input>
+                <div class="card">
+                    <div class="container_switch">
+                        <p>Empresa</p>
+                        <label class="switch" for="check">
+                            <input type="checkbox" id="check">
+                            <div class="seletor"></div>
+                        </label>
+                        <p>Usuário</p>
+                    </div>
+                    <div class="campo">
+                        <h2>Usuário:</h2>
+                        <input>
+                    </div>
+                    <div class="campo">
+                        <h2>Senha:</h2>
+                        <input type="password">
+                    </div>
+                    <button id="entrar" onclick="login()">Entrar</button>
+                    <p>Não possui uma conta? <a href="cadastro.html" id="link_conta">Crie uma agora</a></p>
                 </div>
-                <div class="campo">
-                    <h2>Senha:</h2>
-                    <input type="password">
-                </div>
-                <button id="entrar" onclick="login()">Entrar</button>
-                <p>Não possui uma conta? <a href="cadastro.html" id="link_conta">Crie uma agora</a></p>
             </div>
         </div>
     </div>
@@ -95,10 +96,11 @@
 
         // switch estiver para empresa
         if (usuario_tipo == false){
-            window.open("cadastro-usuario.html", "_self");
+            window.open("cadastro-usuario-teste.html", "_self");
         }else{
         //open dashboard
             window.open("dashboard.html", "_self");
+
         }
 
     }

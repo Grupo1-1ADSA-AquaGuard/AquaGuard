@@ -139,6 +139,10 @@ select#select_estado {
     
 }
 
+.button a{
+    color: white;
+}
+
 .subtitulo_aquaguard{
     font-size: 30px;
     color: #447AA0;

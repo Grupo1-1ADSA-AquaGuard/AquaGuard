@@ -77,44 +77,26 @@
                 <h2>Nível da água</h2>
                 <canvas id="myChart"></canvas>
             </div>
-
             <div class="chart-container" id="kpi">
-                <div class="parts">
-                    <div class="info_kpi" id="alerta_kpi">
-                        <h2><img src="assets/imgs/alert_icon.png"> A água está acima dos sensores</h2>
+                <h2>Status dos sensores</h2>
+                <div class="info_kpi">
+                    <div class="sensor_kpi">
+                        <h3>Sensor 1</h3>
+                        <div style="height: 20px; width: 20px; border-radius: 100%; background-color: lime;"></div>
+                    </div>
+                    <div class="sensor_kpi">
+                        <h3>Sensor 2</h3>
+                        <div style="height: 20px; width: 20px; border-radius: 100%; background-color: lime;"></div>
+                    </div>
+                    <div class="manutencao_kpi">
+                        <h3 id="text-manuteção">manutenção</h3>
+                        <h3 id="text-não-necessária">Não necessária</h3>
                     </div>
                 </div>
-
-                <div class="parts">
-                    <h2>Status dos sensores</h2>
-                    <div class="info_kpi">
-                        <div class="sensor_kpi">
-                            <h3>Sensor 1</h3>
-                            <div style="height: 20px; width: 20px; border-radius: 100%; background-color: lime;"></div>
-                        </div>
-
-                        <div class="sensor_kpi">
-                            <h3>Sensor 2</h3>
-                            <div style="height: 20px; width: 20px; border-radius: 100%; background-color: lime;"></div>
-                        </div>
-
-                        <div class="manutencao_kpi">
-                            <!-- <h3 id="text-manuteção">manutenção</h3>
-                            <h3 id="text-não-necessária">Não necessária</h3> -->
-                            <!-- <h3>manutenção</h3> -->
-                            <h3 id="manutencao">manutenção não necessária</h3>
-                        </div>
-
-                    </div>
+                <h2>Velocidade média da água</h2>
+                <div class="info_kpi">
+                    <h3>1,2 M/h</h3>
                 </div>
-
-                <div class="parts">
-                    <h2>Velocidade média da água</h2>
-                    <div class="info_kpi" style="height: 20px;">
-                        <h3>1,2 M/h</h3>
-                    </div>
-                </div>
-
             </div>
 
         </div>

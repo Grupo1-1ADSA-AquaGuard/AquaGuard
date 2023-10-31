@@ -92,6 +92,26 @@
     padding: 10px;
 }
 
+.card {
+    background: rgba(153, 198, 224, 0.137);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 2px solid #444f6b;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 400px;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 50px;
+}
+
+.banner_login .card{
+    width: 300px;
+}
+
 .container button {
     color: #444f6b;
     background-color: rgba(186, 217, 235, 0.137);
