@@ -20,8 +20,8 @@
             </div>
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html/#projeto">Projeto</a></li>
-                <li><a href="sobre_nos.html">Sobre Nós</a></li>
+                <li><a href="index.html#projeto">Projeto</a></li>
+                <li><a href="index.html#sobre_nos">Sobre Nós</a></li>
                 <li><a href="calculadora.html">Calculadora</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
@@ -194,7 +194,7 @@
             alert("CEP Inválido!")
         }
 
-        else if((email.includes('@') && email.endsWith('.com')) == false){
+        else if(( (email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false){
             alert("Email Inválido")
         }
 
