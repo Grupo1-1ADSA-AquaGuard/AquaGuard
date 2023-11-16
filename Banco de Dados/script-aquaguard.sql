@@ -6,7 +6,7 @@ CREATE TABLE dadosEmpresa (
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT,
     cnpj_empresa CHAR(14) UNIQUE NOT NULL,
 	nome_empresa VARCHAR(45) NOT NULL,
-    email_empresa VARCHAR(100),
+    email_empresa VARCHAR(60),
     telefone_empresa CHAR(11)
 );
 
@@ -199,3 +199,4 @@ SELECT s.tipo as TipoSensor,
  JOIN leituraSensores ls ON s.id_sensor = ls.fk_sensor
  JOIN dadosEmpresa e ON s.fk_empresa = e.id_empresa
  JOIN alertas a ON a.id_alerta = ls.fk_alerta;
+ 
