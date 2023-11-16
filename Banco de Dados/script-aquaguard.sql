@@ -1,13 +1,13 @@
 CREATE DATABASE AquaGuard2;
 USE AquaGuard2;
 
+
 CREATE TABLE dadosEmpresa (
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT,
     cnpj_empresa CHAR(14) UNIQUE NOT NULL,
 	nome_empresa VARCHAR(45) NOT NULL,
     email_empresa VARCHAR(100),
-    telefone_empresa CHAR(11),
-    senha_empresa VARCHAR(20) NOT NULL
+    telefone_empresa CHAR(11)
 );
 
 CREATE TABLE usuarioEmpresa (
@@ -15,6 +15,7 @@ CREATE TABLE usuarioEmpresa (
     nome_usuario VARCHAR(60) NOT NULL UNIQUE,
     email_usuario VARCHAR(100) NOT NULL,
     senha_usuario VARCHAR(50) NOT NULL,
+    permissao_usuario VARCHAR(50)NOT NULL,
     fk_empresa INT,
     CONSTRAINT fk_emp FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_empresa),
     PRIMARY KEY (id_usuario, fk_empresa)
@@ -60,24 +61,25 @@ CREATE TABLE leituraSensores (
 
 -- ------------------------------------------------------------------ INSERT -----------------------------------------------------------------------------------
 INSERT INTO dadosEmpresa VALUES
-(null, '93365395574574', 'Americanas', 'americanas@gmail.com', '11984205722', '8541@america'),
-(null, '20156387000187', 'Assaí Atacadista', 'assaiatacadista@gmail.com', '11925401364', '@556_assai'),
-(null, '06808342000119', 'Carrefour', 'carrefou@gmail.com', '21982048830', '_71000_carrefas'),
-(null, '10941266000192', 'Grupo Muffato', 'muffato@gmail.com', '61923610052', 'hdjs@201563'),
-(null, '68148779000120', 'Sam´s Club', 'samsclub@gmail.com', '85931237095', '772896@#dgsh'),
-(null, '04344358700014', 'Supermercado Dia', 'supermecadodia@gmail.com', '11921108662', 'dia__741110'),
-(null, '04443587000165', 'Extra', 'extra@gmail.com', '13925015889', '0266extra$$');
+(null, '93365395574574', 'Americanas', 'americanas@gmail.com', '11984205722'),
+(null, '20156387000187', 'Assaí Atacadista', 'assaiatacadista@gmail.com', '11925401364'),
+(null, '06808342000119', 'Carrefour', 'carrefou@gmail.com', '21982048830'),
+(null, '10941266000192', 'Grupo Muffato', 'muffato@gmail.com', '61923610052'),
+(null, '68148779000120', 'Sam´s Club', 'samsclub@gmail.com', '85931237095'),
+(null, '04344358700014', 'Supermercado Dia', 'supermecadodia@gmail.com', '11921108662'),
+(null, '04443587000165', 'Extra', 'extra@gmail.com', '13925015889');
 select * from dadosEmpresa;
 
+
 INSERT INTO usuarioEmpresa VALUES
-(null, 'Maria Eduarda Guardião', 'maria.guardiao@sptech.school', '12@345', 7),
-(null, 'Heloisa Caires Salgado', 'heloisa.salgado@sptech.school', '5432@1', 6),
-(null, 'Kely Jéssica', 'kely.alipaz@sptech.school', '@@67890', 5),
-(null, 'Vitor Santos Tigre', 'vitor.tigre@sptech.school', '098_76_', 4),
-(null, 'Marcio Henrique', 'marcio.henrique@sptech.school', '2_345@6', 3),
-(null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school', '76_543#', 2),
-(null, 'Gabriel Henrique Barreto', 'gabriel.barreto@sptech.school', '89@012', 1),
-(null, 'Jean Santos Rocha', 'jean.rocha@sptech.school', '@71415@', 1);
+(null, 'Maria Eduarda Guardião', 'maria.guardiao@sptech.school', '12@345','estagiario', 7),
+(null, 'Heloisa Caires Salgado', 'heloisa.salgado@sptech.school', '5432@1','presidente', 6),
+(null, 'Kely Jéssica', 'kely.alipaz@sptech.school', '@@67890','analista', 5),
+(null, 'Vitor Santos Tigre', 'vitor.tigre@sptech.school', '098_76_','gerente', 4),
+(null, 'Marcio Henrique', 'marcio.henrique@sptech.school', '2_345@6','estagiario', 3),
+(null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school', '76_543#','tecnico', 2),
+(null, 'Gabriel Henrique Barreto', 'gabriel.barreto@sptech.school', '89@012','encarregado', 1),
+(null, 'Jean Santos Rocha', 'jean.rocha@sptech.school', '@71415@','estagiario', 1);
 
 select * from usuarioEmpresa;
 
@@ -130,8 +132,31 @@ INSERT INTO leituraSensores (leitura, fk_sensor, fk_alerta) VALUES
 (1, 112, 1001),
 (0, 113, 1000);
 select * from leituraSensores;
-
-
+-- ------------------------------------------------------------------ PERMISSOES -------------------------------------------------------------------------------
+-- permitir todos os comandos
+ -- Presidente
+grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
+    
+    -- Gerente
+    grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
+    
+    -- Encarregado
+    grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
+    
+    -- Analista
+    grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
+    
+    -- Tecnico
+    grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
+    
+     -- Estagiario
+     grant all privileges on AquaGuard.* 
+	to 'nome'@'localhost';
 -- ------------------------------------------------------------------ SELECT -----------------------------------------------------------------------------------
 SELECT u.nome_usuario as Usuário, u.email_usuario as EmailUsuário, e.nome_empresa as Empresa, e.telefone_empresa as "Telefone Empresa"
   FROM usuarioEmpresa u JOIN dadosEmpresa e ON u.fk_empresa = e.id_empresa;
