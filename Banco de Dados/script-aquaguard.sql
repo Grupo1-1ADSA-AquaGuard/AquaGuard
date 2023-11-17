@@ -14,9 +14,9 @@ CREATE TABLE usuarioEmpresa (
     id_usuario INT AUTO_INCREMENT,
     nome_usuario VARCHAR(60) NOT NULL UNIQUE,
     email_usuario VARCHAR(100) NOT NULL,
-    senha_usuario VARCHAR(50) NOT NULL,
     permissao_usuario VARCHAR(50)NOT NULL,
     fk_empresa INT,
+    CONSTRAINT chkpermissao_usuario check(permissao_usuario in ('administrador', 'visualizador')),
     CONSTRAINT fk_emp FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_empresa),
     PRIMARY KEY (id_usuario, fk_empresa)
 ) AUTO_INCREMENT = 10;
@@ -72,14 +72,14 @@ select * from dadosEmpresa;
 
 
 INSERT INTO usuarioEmpresa VALUES
-(null, 'Maria Eduarda Guardião', 'maria.guardiao@sptech.school', '12@345','estagiario', 7),
-(null, 'Heloisa Caires Salgado', 'heloisa.salgado@sptech.school', '5432@1','presidente', 6),
-(null, 'Kely Jéssica', 'kely.alipaz@sptech.school', '@@67890','analista', 5),
-(null, 'Vitor Santos Tigre', 'vitor.tigre@sptech.school', '098_76_','gerente', 4),
-(null, 'Marcio Henrique', 'marcio.henrique@sptech.school', '2_345@6','estagiario', 3),
-(null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school', '76_543#','tecnico', 2),
-(null, 'Gabriel Henrique Barreto', 'gabriel.barreto@sptech.school', '89@012','encarregado', 1),
-(null, 'Jean Santos Rocha', 'jean.rocha@sptech.school', '@71415@','estagiario', 1);
+(null, 'Maria Eduarda Guardião', 'maria.guardiao@sptech.school','visualizador', 7),
+(null, 'Heloisa Caires Salgado', 'heloisa.salgado@sptech.school','administrador', 6),
+(null, 'Kely Jéssica', 'kely.alipaz@sptech.school','visualizador', 5),
+(null, 'Vitor Santos Tigre', 'vitor.tigre@sptech.school','visualizador', 4),
+(null, 'Marcio Henrique', 'marcio.henrique@sptech.school','visualizador', 3),
+(null, 'Gustavo Antunes', 'gustavo.antunes@sptech.school','visualizador', 2),
+(null, 'Gabriel Henrique Barreto', 'gabriel.barreto@sptech.school','visualizador', 1),
+(null, 'Jean Santos Rocha', 'jean.rocha@sptech.school','visualizador', 1);
 
 select * from usuarioEmpresa;
 
@@ -133,30 +133,24 @@ INSERT INTO leituraSensores (leitura, fk_sensor, fk_alerta) VALUES
 (0, 113, 1000);
 select * from leituraSensores;
 -- ------------------------------------------------------------------ PERMISSOES -------------------------------------------------------------------------------
--- permitir todos os comandos
- -- Presidente
+-- grant all privileges da todas permissões;
+-- flush privileges serve para confirmar a permissão;
+-- create user 'nome' @ 'localhost' identified by 'senha' serve para adicionar um novo usuario;
+-- drop user 'nome' @ 'localhost' serve para deletar um usuario do banco de dados; 
+
+ -- Administrador
+ 
 grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
+to 'nome'@'localhost';
+flush privileges;
     
-    -- Gerente
-    grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
+-- Vizualizador
     
-    -- Encarregado
-    grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
+grant SELECT on AquaGuard.* 
+to 'nome'@'localhost';
+flush privileges;
     
-    -- Analista
-    grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
     
-    -- Tecnico
-    grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
-    
-     -- Estagiario
-     grant all privileges on AquaGuard.* 
-	to 'nome'@'localhost';
 -- ------------------------------------------------------------------ SELECT -----------------------------------------------------------------------------------
 SELECT u.nome_usuario as Usuário, u.email_usuario as EmailUsuário, e.nome_empresa as Empresa, e.telefone_empresa as "Telefone Empresa"
   FROM usuarioEmpresa u JOIN dadosEmpresa e ON u.fk_empresa = e.id_empresa;
