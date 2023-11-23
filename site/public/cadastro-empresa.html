@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="css/style_header.css">
+    <link rel="stylesheet" href="css/style_cadastro.css">
+    <link rel="stylesheet" href="css/style_footer.css">
+
+    <link rel="shortcut icon" href="assets/imgs/logo-nova.ico" type="image/x-icon">
+
+    <script src="./js/sessao.js"></script>
+</head>
+
+<script data-jsd-embedded data-key="b035bc16-5f41-4dbb-aa56-72727bb15266"
+    data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="imagem_logo" src="assets/imgs/logo-nova.png">
+                <img class="frase_logo" src="assets/imgs/logo-frase.png">
+            </div>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projeto">Projeto</a></li>
+                <li><a href="index.html#sobre_nos">Sobre Nós</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="https://sptechaqg.atlassian.net/servicedesk/customer/portal/2">Portal HelpDesk</a></li>
+            </ul>
+            <ul class="usuario">
+                <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
+                <li id="aqui" class="li_cadastro"><a href="#">Cadastro</a></li>
+                <img class="login" src="assets/imgs/login.png" alt="">
+                <li class="li_cadastro"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner_cadastro">
+        <div class="container">
+            <div id="formulario-cadastro">
+                <div class="card">
+                    <div class="titulo">
+                        <h2>Bem vindo(a), cadastre sua empresa!</h2>
+                    </div>
+                    <hr>
+
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Nome da empresa</h3>
+                            <input id="nome_empresa" type="text">
+                        </div>
+                    </div>
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>CNPJ</h3>
+                            <input id="cnpj_empresa" type="text" min="1" maxlength="14" placeholder="Apenas números">
+                        </div>
+                    </div>
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Nome do usuário</h3>
+                            <input id="nome_usuario" type="text">
+                        </div>
+                    </div>
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>E-mail do usuário</h3>
+                            <input id="email_usuario" type="email" placeholder="emailempresa@servidor">
+                        </div>
+                    </div>
+
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Senha do usuário</h3>
+                            <input id="senha_empresa" onkeyup="verificarSenha()" type="password">
+                            <div id="msg_senha"></div>
+                        </div>
+                        <div class="campo">
+                            <h3>Confirme sua senha</h3>
+                            <input id="confirmacao_senha_empresa" onkeyup="confirmarASenha()" type="password">
+                            <div id="msg_senha2"></div>
+                        </div>
+                    </div>
+
+                    <div class="atributo-botao">
+                        <button id="botao_apagar" onclick="Apagar()">Apagar</button>
+                        <button id="botao_cadastro" onclick="cadastrar()">Cadastrar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="lateralTexto">
+                <h3>Mais sobre Aquaguard</h3>
+                <h4>Nosso Contato</h4>
+                <h4>Faq's</h4>
+
+            </div>
+            <div class="imgs">
+                <img src="assets/imgs/insta_logo.png">
+                <img src="assets/imgs/face_logo.png">
+                <img src="assets/imgs/twitter_logo.png">
+            </div>
+            <div class="meioTexto">
+                <div class="textosF">
+                    <diV class="textoFo">
+                        <h5> Terms of use | Privacy policy</h5>
+                    </div>
+                    <div class="textoFo">
+                        <h5> Info Support</h5>
+                        <div class="version"><br>&copy AQUAGUARD v1.0.0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+
+<script>
+    var senha = '';
+    var confirmarSenha = '';
+
+    function verificarSenha() {
+        senha = senha_empresa.value;
+
+        while (senha.length <= 20) {
+            msg_senha.innerHTML = '';
+
+            if (senha.length < 1) {
+                senha_empresa.style.boxShadow = '';
+            } else if (senha.length >= 1 && senha.length < 8) {
+                senha_empresa.style.boxShadow = '2px 2px 5px red';
+                msg_senha.innerHTML += `Sua senha deve ter 8 ou mais caracteres.`;
+            } else if (senha.length >= 8) {
+                senha_empresa.style.boxShadow = '2px 2px 5px green';
+            }
+
+            senha++;
+        }
+
+    }
+
+    function confirmarASenha() {
+        confirmarSenha = confirmacao_senha_empresa.value;
+
+        while (confirmarSenha.length <= 20) {
+            msg_senha2.innerHTML = '';
+
+            if (confirmarSenha.length < 1) {
+                confirmacao_senha_empresa.style.boxShadow = '';
+            } else if (confirmarSenha == senha_empresa.value) {
+                confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px green';
+            } else {
+                confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px red';
+                msg_senha2.innerHTML += `A senha está diferente e/ou tem menos de 8 caracteres.`;
+            }
+
+            confirmarSenha++;
+
+        }
+
+    }
+
+    function cadastrar() {
+        var nomeEmpresa = nome_empresa.value;
+        var cnpjEmpresa = cnpj_empresa.value;
+        var nomeUsuario = nome_usuario.value;
+        var emailUsuario = email_usuario.value;
+        var senhaUsuario = senha_empresa.value;
+        var confirmarSenha = confirmacao_senha_empresa.value;
+
+
+
+        if (
+            nomeEmpresa == "" ||
+            cnpjEmpresa == "" ||
+            nomeUsuario == "" ||
+            emailUsuario == "" ||
+            senhaUsuario == ""
+        ) {
+            // cardErro.style.display = "block";
+            // mensagem_erro.innerHTML =
+            //     "(Mensagem de erro para todos os campos em branco)";
+
+            // finalizarAguardar();
+            alert("Campos em branco")
+            return false;
+        } else {
+            // setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeEmpresaServer: nomeEmpresa,
+                cnpjServer: cnpjEmpresa,
+                nomeUsuarioServer: nomeUsuario,
+                emailServer: emailUsuario,
+                senhaServer: senhaUsuario,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML =
+                    //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // if(nomeEmpresa == ""){
+        //     alert("Nome de Empresa Inválido!")
+
+        // } else if(cnpj.length < 14){
+        //     alert("CNPJ Inválido!")
+        // } else if(telefone.length < 11){
+        //     alert("Telefone Inválido!")
+
+        // } else if(cep.length < 8){
+        //     alert("CEP Inválido!")
+
+        // } else if(( (email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false){
+        //     alert("Email Inválido")
+
+        // } else if(senha == "" || confirmarSenha == ""){
+        //     alert("Senha Inválida")
+
+        // } else{
+        //     window.open("cadastro-usuario.html", "_self");
+        // }
+    }
+
+    function Apagar() {
+        nome_empresa.value = "";
+        cnpj_empresa.value = "";
+        telefone_empresa.value = "";
+        cep_empresa.value = "";
+        email_empresa.value = "";
+        senha_empresa.value = "";
+        confirmacao_senha_empresa.value = "";
+    }
+
+
+</script>
