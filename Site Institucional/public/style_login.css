@@ -28,7 +28,7 @@
 #formulario-login {
     width: 70%;
     height: 400px;
-    /* border-radius: 20px; */
+    border-radius: 20px;
     background-color: aliceblue;
     display: flex;
     align-items: center;
@@ -95,17 +95,15 @@
 .card {
     background: rgba(153, 198, 224, 0.137);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 2px solid #444f6b;
     display: flex;
     flex-direction: column;
     height: fit-content;
     width: 400px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center; 
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .banner_login .card{
@@ -128,20 +126,25 @@
     text-align: center;
     height: 80px;
     justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .campo input {
     height: 30px;
-    width: 75%;
-    border-radius: 10%;
+    width: 100%;
+    border-radius: 15px;
     text-align: center;
+    border: 0.5px solid #58799D;
 }
 
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 
 #link_conta {
     font-weight: 800;
@@ -155,48 +158,26 @@ input::-webkit-inner-spin-button {
     color: red;
     font-weight: 900;
     text-align: center;
-    margin-block: 10px;
+    /* margin-block: 10px; */
 }
 
 #entrar {
-    margin-top: 20px;
-    color: black;
+    /* margin-top: 20px; */
+    color: rgb(255, 255, 255);
+    background-color: #96a6cc;
+    border: 0.5px solid #96a6cc;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 17px;
 } 
 
 #entrar:hover {
-    background-color: #d1e6fd;
+    box-shadow: 0 0 20px 0 rgb(82, 80, 80);
 }
 
-/* -----------------switch */
-.container_switch{
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.switch{
-  margin: 0 5px;
-  display: flex;
-  align-items: center;
-  width: 40px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 20px;
-  border: 2px solid #58799D;
-}
-
-.seletor{
-  width: 16px;
-  height: 16px;
-  margin-left: 2px;
-  border-radius: 100%;
-  background-color: #58799D;
-}
-
-#check{
-    display: none;
-}
-
-#check:checked ~ .seletor{
-  margin-left: 22px;
+#msg_senha {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-rendering: auto;
 }

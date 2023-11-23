@@ -42,45 +42,30 @@
             <div id="formulario-cadastro">
                 <div class="card">  
                     <div class="titulo">
-                        <h2>Bem vindo(a), cadastre sua empresa!</h2>
+                        <h2>Insira os dados da sua empresa</h2>
                     </div>
                     <hr>
 
                     <div class="atributo">
                         <div class="campo">
-                            <h3>Nome da empresa</h3>
-                            <input id="nome_empresa" type="text">
+                            <h3>Telefone</h3>
+                            <input id="telefone_empresa" type="text">
                         </div>
                     </div>
                     <div class="atributo">
                         <div class="campo">
-                            <h3>CNPJ</h3>
-                            <input id="cnpj_empresa" type="text" min="1" maxlength="14" placeholder="Apenas números">
+                            <h3>CEP</h3>
+                            <input id="cep_empresa" type="text" min="1" maxlength="14" placeholder="Apenas números">
+                        </div>
+                        <div class="campo">
+                            <h3>Número</h3>
+                            <input id="num_empresa" type="text">
                         </div>
                     </div>
                     <div class="atributo">
                         <div class="campo">
-                            <h3>Nome do usuário</h3>
-                            <input id="nome_usuario" type="text">
-                        </div>
-                    </div>
-                    <div class="atributo">
-                        <div class="campo">
-                            <h3>E-mail do usuário</h3>
-                            <input id="email_usuario" type="email" placeholder="emailempresa@servidor">
-                        </div>
-                    </div>
-
-                    <div class="atributo">
-                        <div class="campo">
-                            <h3>Senha do usuário</h3>
-                            <input id="senha_empresa" onkeyup="verificarSenha()" type="password">
-                            <div id="msg_senha"></div>
-                        </div>
-                        <div class="campo">
-                            <h3>Confirme sua senha</h3>
-                            <input id="confirmacao_senha_empresa" onkeyup="confirmarASenha()" type="password">
-                            <div id="msg_senha2"></div>
+                            <h3>E-mail da empresa</h3>
+                            <input id="email_empresa" type="email" placeholder="emailempresa@servidor">
                         </div>
                     </div>
 

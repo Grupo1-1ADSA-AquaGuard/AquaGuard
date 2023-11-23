@@ -65,6 +65,15 @@
     border: 0.5px solid #99aadb;
 }
 
+.campo select {
+    background-color: rgb(255, 255, 255);
+    width: 99%;
+    height: 5vh;
+    padding: 6px;
+    border-radius: 10px;
+    border: 0.5px solid #99aadb;
+}
+
 .campo {
     flex-direction: column;
     justify-content: space-evenly;
