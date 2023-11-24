@@ -132,42 +132,35 @@
     function verificarSenha() {
         senha = senha_empresa.value;
 
-        while (senha.length <= 20) {
-            msg_senha.innerHTML = '';
-
-            if (senha.length < 1) {
-                senha_empresa.style.boxShadow = '';
-            } else if (senha.length >= 1 && senha.length < 8) {
-                senha_empresa.style.boxShadow = '2px 2px 5px red';
-                msg_senha.innerHTML += `Sua senha deve ter 8 ou mais caracteres.`;
-            } else if (senha.length >= 8) {
-                senha_empresa.style.boxShadow = '2px 2px 5px green';
-            }
-
-            senha++;
+        if (senha.length < 1) {
+            senha_empresa.style.boxShadow = '';
+        } else if (senha.length >= 1 && senha.length < 8) {
+            senha_empresa.style.boxShadow = '2px 2px 5px red';
+            msg_senha.innerHTML = `Sua senha deve ter 8 ou mais caracteres.`;
+        } else if (senha.length >= 8) {
+            senha_empresa.style.boxShadow = '2px 2px 5px green';
         }
 
     }
 
     function confirmarASenha() {
         confirmarSenha = confirmacao_senha_empresa.value;
+        msg_senha2.innerHTML = ``;
 
-        while (confirmarSenha.length <= 20) {
-            msg_senha2.innerHTML = '';
+        if (confirmarSenha.length < 1) {
+            confirmacao_senha_empresa.style.boxShadow = '';
 
-            if (confirmarSenha.length < 1) {
-                confirmacao_senha_empresa.style.boxShadow = '';
-            } else if (confirmarSenha == senha_empresa.value) {
-                confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px green';
-            } else {
-                confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px red';
-                msg_senha2.innerHTML += `A senha está diferente e/ou tem menos de 8 caracteres.`;
-            }
+        } else if (confirmarSenha != senha_empresa.value) {
+            confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px red';
+            msg_senha2.innerHTML = `Campos não coincidem.`;
 
-            confirmarSenha++;
+        } else if(confirmarSenha.length < 8) {
+            confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px red';
+            
+        } else{
+            confirmacao_senha_empresa.style.boxShadow = '2px 2px 5px green';
 
         }
-
     }
 
     function cadastrar() {
@@ -179,26 +172,28 @@
         var confirmarSenha = confirmacao_senha_empresa.value;
 
 
-
-        if (
-            nomeEmpresa == "" ||
-            cnpjEmpresa == "" ||
-            nomeUsuario == "" ||
-            emailUsuario == "" ||
-            senhaUsuario == ""
-        ) {
-            // cardErro.style.display = "block";
-            // mensagem_erro.innerHTML =
-            //     "(Mensagem de erro para todos os campos em branco)";
-
-            // finalizarAguardar();
-            alert("Campos em branco")
+        if(nomeEmpresa == ""){
+            alert("Nome de Empresa Inválido!")
             return false;
-        } else {
-            // setInterval(sumirMensagem, 5000);
+
+        } else if(cnpjEmpresa.length < 14){
+            alert("CNPJ Inválido!")
+            return false;
+
+        } else if(nomeUsuario == ""){
+            alert("Nome de Empresa Inválido!")
+            return false;
+
+        } else if(( (emailUsuario.includes('@gmail') || (emailUsuario.includes('@hotmail') || (emailUsuario.includes('@outlook')) && emailUsuario.endsWith('.com')))) == false){
+            alert("Email Inválido")
+            return false;
+
+        } else if(senha == "" || confirmarSenha == ""){
+            alert("Senha Inválida")
+            return false;
+
         }
 
-        // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -218,69 +213,21 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    // cardErro.style.display = "block";
-
-                    // mensagem_erro.innerHTML =
-                    //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
                     setTimeout(() => {
                         window.location = "login.html";
-                    }, "2000");
-
-                    // limparFormulario();
-                    // finalizarAguardar();
+                    }, "1000");
 
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
+                    
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
         return false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // if(nomeEmpresa == ""){
-        //     alert("Nome de Empresa Inválido!")
-
-        // } else if(cnpj.length < 14){
-        //     alert("CNPJ Inválido!")
-        // } else if(telefone.length < 11){
-        //     alert("Telefone Inválido!")
-
-        // } else if(cep.length < 8){
-        //     alert("CEP Inválido!")
-
-        // } else if(( (email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false){
-        //     alert("Email Inválido")
-
-        // } else if(senha == "" || confirmarSenha == ""){
-        //     alert("Senha Inválida")
-
-        // } else{
-        //     window.open("cadastro-usuario.html", "_self");
-        // }
     }
 
     function Apagar() {

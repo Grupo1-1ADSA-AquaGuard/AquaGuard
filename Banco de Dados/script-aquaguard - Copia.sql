@@ -1,6 +1,47 @@
 CREATE DATABASE AquaGuard2;
 USE AquaGuard2;
 
+set @teste = 10;
+set @teste2 =  (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+select* from dadosEmpresa;
+select @teste2;
+
+create table teste(
+id int primary key 
+);
+
+insert into teste values
+(@teste);
+
+select* from teste;
+
+declare @testeee int;
+
+set @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+set @idEmpresa = 8;
+
+INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, senha_usuario, tipo_usuario, fk_empresa) values
+	(1, 'gabriel', 'aaaaa', 'senhasenhasenha','admin', 10);
+    
+desc usuarioEmpresa;
+    
+    select * from usuarioEmpresa;
+    
+select * from dadosEmpresa;
+
+desc usuarioEmpresa;
+
+select @testeId;
+
+SELECT id_empresa FROM dadosEmpresa;
+
+desc dadosEmpresa;
+
+select @idEmpresa;
+
+SET @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+desc usuarioempresa;
+show tables;
 
 CREATE TABLE dadosEmpresa (
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT,
@@ -9,6 +50,7 @@ CREATE TABLE dadosEmpresa (
     email_empresa VARCHAR(60),
     telefone_empresa CHAR(11)
 );
+select * from dadosEmpresa;
 
 CREATE TABLE usuarioEmpresa (
     id_usuario INT AUTO_INCREMENT,
@@ -20,6 +62,19 @@ CREATE TABLE usuarioEmpresa (
     CONSTRAINT fk_emp FOREIGN KEY (fk_empresa) REFERENCES dadosEmpresa(id_empresa),
     PRIMARY KEY (id_usuario, fk_empresa)
 ) AUTO_INCREMENT = 10;
+
+select * from usuarioempresa;
+
+select * from dadosEmpresa;
+
+SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1;  
+desc dadosEmpresa;
+
+desc dadosEmpresa;
+alter table dadosEmpresa drop column senha_empresa;
+desc usuarioEmpresa;
+
+alter table usuarioEmpresa add column tipo_usuario varchar(45);
 
 CREATE TABLE enderecoEmpresa(
 	id_endereco INT PRIMARY KEY AUTO_INCREMENT,
