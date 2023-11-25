@@ -23,7 +23,8 @@ function autenticar(req, res) {
                             id: resultadoAutenticar[0].id_usuario,
                             email: resultadoAutenticar[0].email_usuario,
                             nome: resultadoAutenticar[0].nome_usuario,
-                            fk_empresa: resultadoAutenticar[0].empresaId,
+                            fk_empresa: resultadoAutenticar[0].id_empresa,
+                            nome_empresa: resultadoAutenticar[0].nome_empresa
                         });
 
                     } else if (resultadoAutenticar.length == 0) {

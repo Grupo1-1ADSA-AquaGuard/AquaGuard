@@ -23,7 +23,7 @@
                 <li><a href="index.html#projeto">Projeto</a></li>
                 <li><a href="index.html#sobre_nos">Sobre Nós</a></li>
                 <li><a href="calculadora.html">Calculadora</a></li>
-                <li><a href="https://sptechaqg.atlassian.net/servicedesk/customer/portal/2">Portal HelpDesk</a></li>
+                <li><a href="https://sptechaqg.atlassian.net/servicedesk/customer/portal/2" target="_blank">Portal HelpDesk</a></li>
             </ul>
             <ul class="usuario">
                 <img class="cadastro" src="assets/imgs/cadastro.png" alt="">
@@ -137,9 +137,10 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.FK_EMPRESA = json.fk_empresa;
+                    sessionStorage.NOME_EMPRESA = json.nome_empresa;
 
                     setTimeout(() => {
-                        window.location = "dashboard.html";
+                        window.location = "./dashboard/dashboard.html";
                     }, "1000");
                 });
 

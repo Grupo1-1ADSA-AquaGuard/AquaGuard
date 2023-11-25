@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style_header.css"> -->
+    <link rel="stylesheet" href="../css/style_dashboard.css">
+    <title>Usuários</title>
+    <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/sessao.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container" id="left_bar">
+        <div class="items">
+            <div class="logo">
+                <img src="../assets/imgs/logo-nova.png" class="img_logo">
+                <img src="../assets/imgs/logo-frase.png" class="frase">
+            </div>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <ul class="abas">
+                <li>
+                    <h2><img src="../assets/imgs/dash/home_icon.png"><a href="dashboard.html">   Dashboard</a></h2>
+                </li>
+                <li id="aqui">
+                    <h2><img src="../assets/imgs/dash/contato.png"><a href="#">   Usuários</a></h2>
+                </li>
+                <li>
+                    <h2><img src="../assets/imgs/dash/settings.png"><a href="dadosEmpresa.html">   Dados empresa</a></h2>
+
+                </li>
+            </ul>
+            <div id="user_in">
+                <h2 id="exit_icon"><img id="exit_img" src="../assets/imgs/dash/exit_icon.png" onclick="limparSessao()">
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="usuarios">
+        <div class="titulo_dash">
+            <h2>Cadastro de usuários </h2>&nbsp;&nbsp;
+            <h2  id="empresa_profile">Nome</h2>
+        </div>
+        <div id="formulario-cadastro">
+            <div class="card">
+                <div class="atributo">
+                    <div class="campo">
+                        <h3>Nome do usuário</h3>
+                        <input id="nome_usuario" type="text">
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="campo">
+                        <h3>E-mail</h3>
+                        <input id="email_usuario" type="email" placeholder="emailusuario@servidor">
+                    </div>
+                </div>
+                <div class="atributo">
+                    <div class="campo">
+                        <h3>Tipo do usuário</h3>
+                        <select name="" id="select_tipo">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="adm">Administrador</option>
+                            <option value="viz">Visualizador</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="campo">
+                        <h3>Senha</h3>
+                        <input id="senha_usuario" onkeyup="verificarSenha()" type="password">
+                        <div id="msg_senha"></div>
+                    </div>
+                    <div class="campo">
+                        <h3>Confirme sua senha</h3>
+                        <input id="confirmacao_senha_usuario" onkeyup="confirmarASenha()" type="password">
+                        <div id="msg_senha2"></div>
+                    </div>
+                </div>
+
+                <div id="div_msg_erro"></div>
+
+                <div class="atributo-botao">
+                    <button id="botao_apagar" onclick="limpar()">Limpar</button>
+                    <button id="botao_viz" onclick="visualizarUsuarios()">Usuários cadastrados</button>
+                    <button id="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    empresa_profile.innerHTML = sessionStorage.NOME_EMPRESA;
+
+    var senha = '';
+    var confirmarSenha = '';
+
+    function verificarSenha() {
+        senha = senha_usuario.value;
+
+        while (senha.length <= 20) {
+            msg_senha.innerHTML = '';
+
+            if (senha.length < 1) {
+                senha_usuario.style.boxShadow = '';
+            } else if (senha.length >= 1 && senha.length < 8) {
+                senha_usuario.style.boxShadow = '2px 2px 5px red';
+                msg_senha.innerHTML += `Sua senha deve ter 8 ou mais caracteres.`;
+            } else if (senha.length >= 8) {
+                senha_usuario.style.boxShadow = '2px 2px 5px green';
+            }
+
+            senha++;
+        }
+
+    }
+
+    function confirmarASenha() {
+        confirmarSenha = confirmacao_senha_usuario.value;
+
+        msg_senha2.innerHTML = '';
+
+        if (confirmarSenha.length < 1) {
+            confirmacao_senha_usuario.style.boxShadow = '';
+        } else if (confirmarSenha == senha_usuario.value) {
+            confirmacao_senha_usuario.style.boxShadow = '2px 2px 5px green';
+        } else {
+            confirmacao_senha_usuario.style.boxShadow = '2px 2px 5px red';
+            msg_senha2.innerHTML += `A senha está diferente`;
+        }
+
+    }
+
+    function cadastrar() {
+        var nomeUsuario = nome_usuario.value;
+        senha = senha_usuario.value;
+        var email = email_usuario.value;
+        var resultado = confirm(`Deseja cadastrar o usuário ${nomeUsuario}`)
+
+        if (nomeUsuario == "") {
+            alert("Usuário Inválido")
+        }
+
+        else if (((email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false) {
+            alert("Email Inválido")
+        }
+
+        else if (senha == "" || confirmarSenha == "") {
+            alert("Senha Incorreta")
+        }
+
+    }
+
+    function limpar() {
+        nome_usuario.value = "";
+        senha_usuario.value = "";
+        email_usuario.value = "";
+        confirmacao_senha_usuario.value = "";
+        senha_usuario.value = "";
+        senha_usuario.style.boxShadow = 'none'
+        confirmacao_senha_usuario.style.boxShadow = 'none'
+        msg_senha2.innerHTML = ''
+        msg_senha.innerHTML  = ''
+    }
+
+</script>
