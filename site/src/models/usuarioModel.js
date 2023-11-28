@@ -16,20 +16,36 @@ function cadastrar(nomeEmpresa, cnpj, nomeUsuario, email, senha) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores e na ordem de inserção dos dados. 
     var instrucao1 = `
         INSERT INTO dadosEmpresa (cnpj_empresa, nome_empresa) VALUES ('${cnpj}', '${nomeEmpresa}');
-        
     `;
     console.log("Executando a instrução SQL: \n" + instrucao1);
     database.executar(instrucao1);
    
 
     var instrucao2 = `
-        INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, senha_usuario, permissao_usuario, fk_empresa) values (1, '${nomeUsuario}', '${email}', '${senha}','administrador', (SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1))
+        INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, permissao_usuario, fk_empresa,senha_usuario) 
+        values (1, '${nomeUsuario}', '${email}','administrador', (SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1),'${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao2);
     return database.executar(instrucao2);
 }
 
+function cadastroDadosEmpresa(telefoneEmpresa,cepEmpresa,numEmpresa,emailEmpresa,fkEmpresa){
+    var instrucao1 = `
+        UPDATE dadosEmpresa SET telefone_empresa = '${telefoneEmpresa}', email_empresa = '${emailEmpresa}' WHERE id_empresa = ${fkEmpresa};
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao1);
+    database.executar(instrucao1);
+
+    var instrucao2 = `
+        INSERT INTO enderecoEmpresa (cep_empresa,numero_empresa,fk_empresa) 
+        VALUES ('${cepEmpresa}', '${numEmpresa}', '${fkEmpresa}')
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao1);
+    database.executar(instrucao2);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastroDadosEmpresa
 };

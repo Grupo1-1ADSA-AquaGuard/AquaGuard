@@ -80,7 +80,7 @@
 
                 <div class="atributo-botao">
                     <button id="botao_apagar" onclick="limpar()">Limpar</button>
-                    <button id="botao_cadastro" onclick="cadastrar()">Cadastrar </button>
+                    <button id="botao_cadastro" onclick="cadastroDadosEmpresa()">Cadastrar </button>
                 </div>
             </div>
         </div>
@@ -159,6 +159,48 @@
         cep_empresa.value = "";
         num_empresa.value = "";
         email_empresa.value = "";
+    }
+
+    function cadastroDadosEmpresa(){
+      var telefoneEmpresa = telefone_empresa.value
+      var cepEmpresa = cep_empresa.value
+      var numEmpresa = num_empresa.value
+      var emailEmpresa = email_empresa.value
+
+        if(telefoneEmpresa == ""){
+            alert("Nome de Empresa Inválido!")
+            return false;
+        
+        } else if(cepEmpresa.length < 8){
+            alert("CNPJ Inválido!")
+            return false;
+
+        } else if(numEmpresa == ""){
+            alert("Número Inválido!")
+            return false;
+
+        } else if(( (emailEmpresa.includes('@gmail') || (emailEmpresa.includes('@hotmail') || (emailEmpresa.includes('@outlook')) && emailEmpresa.endsWith('.com')))) == false){
+            alert("Email Inválido")
+            return false;
+
+        } 
+
+        fetch("/usuarios/cadastroDadosEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                telefoneEmpresaServer: telefoneEmpresa,
+                cepEmpresaServer: cepEmpresa,
+                numEmpresaServer: numEmpresa,
+                emailEmpresaServer: emailEmpresa,
+                fkEmpresaServer: sessionStorage.FK_EMPRESA
+            }),
+        })
+        return false;
     }
 
 </script>
