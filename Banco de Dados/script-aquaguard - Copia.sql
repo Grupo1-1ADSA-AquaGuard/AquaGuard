@@ -1,47 +1,47 @@
 CREATE DATABASE AquaGuard2;
 USE AquaGuard2;
 
-set @teste = 10;
-set @teste2 =  (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
-select* from dadosEmpresa;
-select @teste2;
+-- set @teste = 10;
+-- set @teste2 =  (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+-- select* from dadosEmpresa;
+-- select @teste2;
 
-create table teste(
-id int primary key 
-);
+-- create table teste(
+-- id int primary key 
+-- );
 
-insert into teste values
-(@teste);
+-- insert into teste values
+-- (@teste);
 
-select* from teste;
+-- select* from teste;
 
-declare @testeee int;
+-- declare @testeee int;
 
-set @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
-set @idEmpresa = 8;
+-- set @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+-- set @idEmpresa = 8;
 
-INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, senha_usuario, tipo_usuario, fk_empresa) values
-	(1, 'gabriel', 'aaaaa', 'senhasenhasenha','admin', 10);
+-- INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, senha_usuario, tipo_usuario, fk_empresa) values
+-- 	(1, 'gabriel', 'aaaaa', 'senhasenhasenha','admin', 10);
     
-desc usuarioEmpresa;
+-- desc usuarioEmpresa;
     
-    select * from usuarioEmpresa;
+--     select * from usuarioEmpresa;
     
-select * from dadosEmpresa;
+-- select * from dadosEmpresa;
 
-desc usuarioEmpresa;
+-- desc usuarioEmpresa;
 
-select @testeId;
+-- select @testeId;
 
-SELECT id_empresa FROM dadosEmpresa;
+-- SELECT id_empresa FROM dadosEmpresa;
 
-desc dadosEmpresa;
+-- desc dadosEmpresa;
 
-select @idEmpresa;
+-- select @idEmpresa;
 
-SET @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
-desc usuarioempresa;
-show tables;
+-- SET @idEmpresa = (select id_empresa from dadosEmpresa order by id_empresa desc limit 1);
+-- desc usuarioempresa;
+-- show tables;
 
 CREATE TABLE dadosEmpresa (
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT,

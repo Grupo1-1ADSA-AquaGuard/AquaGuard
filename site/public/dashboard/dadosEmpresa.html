@@ -25,13 +25,13 @@
             </div>
             <ul class="abas">
                 <li>
-                    <h2><img src="../assets/imgs/dash/home_icon.png"><a href="dashboard.html">   Dashboard</a></h2>
+                    <h2><img src="../assets/imgs/dash/home_icon.png"><a href="dashboard.html"> Dashboard</a></h2>
                 </li>
                 <li>
-                    <h2><img src="../assets/imgs/dash/contato.png"><a href="usuarios.html">   Usuários</a></h2>
+                    <h2><img src="../assets/imgs/dash/contato.png"><a href="usuarios.html"> Usuários</a></h2>
                 </li>
                 <li id="aqui">
-                    <h2><img src="../assets/imgs/dash/settings.png"><a>   Dados empresa</a></h2>
+                    <h2><img src="../assets/imgs/dash/settings.png"><a> Dados empresa</a></h2>
 
                 </li>
             </ul>
@@ -48,7 +48,7 @@
             <!-- <h2  id="empresa_profile">Nome</h2> -->
         </div>
         <div id="formulario-cadastro">
-            <div class="card">  
+            <div class="card">
                 <div class="atributo">
                     <div class="campo">
                         <h3>Nome da empresa</h3>
@@ -74,7 +74,7 @@
                 <div class="atributo">
                     <div class="campo">
                         <h3>E-mail da empresa</h3>
-                        <input id="email_empresa"  type="email" placeholder="emailempresa@servidor">
+                        <input id="email_empresa" type="email" placeholder="emailempresa@servidor">
                     </div>
                 </div>
 
@@ -161,29 +161,29 @@
         email_empresa.value = "";
     }
 
-    function cadastroDadosEmpresa(){
-      var telefoneEmpresa = telefone_empresa.value
-      var cepEmpresa = cep_empresa.value
-      var numEmpresa = num_empresa.value
-      var emailEmpresa = email_empresa.value
+    function cadastroDadosEmpresa() {
+        var telefoneEmpresa = telefone_empresa.value
+        var cepEmpresa = cep_empresa.value
+        var numEmpresa = num_empresa.value
+        var emailEmpresa = email_empresa.value
 
-        if(telefoneEmpresa == ""){
+        if (telefoneEmpresa == "") {
             alert("Nome de Empresa Inválido!")
             return false;
-        
-        } else if(cepEmpresa.length < 8){
+
+        } else if (cepEmpresa.length < 8) {
             alert("CNPJ Inválido!")
             return false;
 
-        } else if(numEmpresa == ""){
+        } else if (numEmpresa == "") {
             alert("Número Inválido!")
             return false;
 
-        } else if(( (emailEmpresa.includes('@gmail') || (emailEmpresa.includes('@hotmail') || (emailEmpresa.includes('@outlook')) && emailEmpresa.endsWith('.com')))) == false){
+        } else if (((emailEmpresa.includes('@gmail') || (emailEmpresa.includes('@hotmail') || (emailEmpresa.includes('@outlook')) && emailEmpresa.endsWith('.com')))) == false) {
             alert("Email Inválido")
             return false;
 
-        } 
+        }
 
         fetch("/usuarios/cadastroDadosEmpresa", {
             method: "POST",
@@ -200,6 +200,15 @@
                 fkEmpresaServer: sessionStorage.FK_EMPRESA
             }),
         })
+            .then(function (resposta) {
+                console.log("Está no .then");
+                console.log("Resposta: ", resposta);
+
+                if (resposta.ok) {
+                    
+                }
+            })
+            .catch()
         return false;
     }
 

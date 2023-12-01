@@ -1,8 +1,13 @@
-int porta1 = 5;
+int porta1 = 5;   //entrada da leitura do primeiro sensor
 int leitura1 = 0;
 
 int porta2 = 7;
 int leitura2 = 0;
+
+int tempo_sensor1 = 0;  //tempo de ativação dos sensores
+int tempo_sensor2 = 0;
+
+float distancia = 0.2;
 
 void setup() {
   Serial.begin(9600);

@@ -22,8 +22,8 @@ function cadastrar(nomeEmpresa, cnpj, nomeUsuario, email, senha) {
    
 
     var instrucao2 = `
-        INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, permissao_usuario, fk_empresa,senha_usuario) 
-        values (1, '${nomeUsuario}', '${email}','administrador', (SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1),'${senha}');
+        INSERT INTO usuarioEmpresa (id_usuario, nome_usuario, email_usuario, senha_usuario, permissao_usuario, fk_empresa) 
+        values (1, '${nomeUsuario}', '${email}', '${senha}', 'administrador', (SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1));
     `;
     console.log("Executando a instrução SQL: \n" + instrucao2);
     return database.executar(instrucao2);
