@@ -67,8 +67,15 @@ select * from usuarioempresa;
 
 select * from dadosEmpresa;
 
+select * from sensor where fk_empresa = 4;
+
 SELECT id_empresa FROM dadosEmpresa ORDER BY id_empresa DESC LIMIT 1;  
 desc dadosEmpresa;
+
+select * from usuarioEmpresa;
+
+update usuarioEmpresa set fk_empresa = 4 where fk_empresa = 10;
+delete from usuarioEmpresa where fk_empresa = 11;
 
 desc dadosEmpresa;
 alter table dadosEmpresa drop column senha_empresa;
@@ -112,6 +119,9 @@ CREATE TABLE leituraSensores (
     CONSTRAINT fk_alert FOREIGN KEY (fk_alerta) REFERENCES alertas(id_alerta),
     PRIMARY KEY (id_leitura, fk_sensor)
 );
+
+drop table leituraSensores;
+
 
 
 -- ------------------------------------------------------------------ INSERT -----------------------------------------------------------------------------------
@@ -249,3 +259,63 @@ SELECT s.tipo as TipoSensor,
  JOIN dadosEmpresa e ON s.fk_empresa = e.id_empresa
  JOIN alertas a ON a.id_alerta = ls.fk_alerta;
  
+ select * from leituraSensores;
+ select * from sensor;
+ 
+ SELECT count(id_sensor), leitura, DATE_FORMAT(dt_atual,'%H:%i:%s') AS momento
+                        FROM leituraSensores AS ls
+                        JOIN sensor AS s
+                            ON ls.fk_sensor = s.id_sensor
+                        where s.fk_empresa = 4
+                            group by id_sensor;
+                            
+select * from leituraSensores where fk_sensor = 107 order by id_leitura desc;                            
+
+desc leituraSensores;
+INSERT INTO leituraSensores (leitura, fk_sensor, dt_atual)
+VALUES
+  (0, 106, '2023-12-02 23:12:42'), (0, 107, '2023-12-02 23:12:42'), (0, 106, '2023-12-02 23:12:45'), (0, 107, '2023-12-02 23:12:45'), (0, 106, '2023-12-02 23:12:48'),
+  (0, 107, '2023-12-02 23:12:48'), (0, 106, '2023-12-02 23:12:51'), (0, 107, '2023-12-02 23:12:51'), (1, 106, '2023-12-02 23:12:54'), (0, 107, '2023-12-02 23:12:54'),
+  (1, 106, '2023-12-02 23:12:57'), (0, 107, '2023-12-02 23:12:57');
+  
+select * from leituraSensores;
+
+update leituraSensores set leitura = 1 where id_leitura = 12;
+  
+  
+  INSERT INTO leituraSensores (leitura, fk_sensor)
+
+VALUES
+  (0, 106), (1, 107), (0, 106), (1, 107), (0, 106),
+  (1, 107), (0, 106), (1, 107), (0, 106), (1, 107),
+  (0, 106), (1, 107), (0, 106), (1, 107), (0, 106),
+  (1, 107), (0, 106), (1, 107), (0, 106), (1, 107),
+  (0, 106), (1, 107), (0, 106), (1, 107), (0, 106),
+  (1, 107), (0, 106), (1, 107), (0, 106), (1, 107),
+  (0, 106), (1, 107), (0, 106), (1, 107), (0, 106),
+  (1, 107), (0, 106), (1, 107), (0, 106), (1, 107),
+  (0, 106), (1, 107), (0, 106), (1, 107), (0, 106),
+  (1, 107), (0, 106), (1, 107), (0, 106), (1, 107);
+  
+  select * from leituraSensores;
+  
+(SELECT fk_sensor, id_leitura, leitura, DATE_FORMAT(dt_atual,'%H:%i:%s') AS momento
+	FROM leituraSensores
+	WHERE fk_sensor = 106
+	order by id_leitura desc
+	limit 20)
+UNION
+(SELECT fk_sensor, id_leitura, leitura, DATE_FORMAT(dt_atual,'%H:%i:%s') AS momento
+	FROM leituraSensores
+	WHERE fk_sensor = 107
+	order by id_leitura desc
+	limit 20);
+                        
+select  leitura, DATE_FORMAT(dt_atual,'%H:%i:%s') momento from leituraSensores
+	where fk_sensor = 107
+	order by id_leitura desc limit 20;
+    
+    
+
+
+

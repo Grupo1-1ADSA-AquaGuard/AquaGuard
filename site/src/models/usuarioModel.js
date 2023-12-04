@@ -29,7 +29,7 @@ function cadastrar(nomeEmpresa, cnpj, nomeUsuario, email, senha) {
     return database.executar(instrucao2);
 }
 
-function cadastroDadosEmpresa(telefoneEmpresa,cepEmpresa,numEmpresa,emailEmpresa,fkEmpresa){
+function cadastroDadosEmpresa(telefoneEmpresa, cepEmpresa, numEmpresa, emailEmpresa, fkEmpresa){
     var instrucao1 = `
         UPDATE dadosEmpresa SET telefone_empresa = '${telefoneEmpresa}', email_empresa = '${emailEmpresa}' WHERE id_empresa = ${fkEmpresa};
     `
@@ -41,7 +41,7 @@ function cadastroDadosEmpresa(telefoneEmpresa,cepEmpresa,numEmpresa,emailEmpresa
         VALUES ('${cepEmpresa}', '${numEmpresa}', '${fkEmpresa}')
     `
     console.log("Executando a instrução SQL: \n" + instrucao1);
-    database.executar(instrucao2);
+    return database.executar(instrucao2);
 }
 
 module.exports = {

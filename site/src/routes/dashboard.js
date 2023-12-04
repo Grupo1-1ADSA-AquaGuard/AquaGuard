@@ -8,6 +8,16 @@ router.post("/lerDados/:idDashboard", function (req, res) {
     dashboardController.lerDados(req, res);
 })
 
+router.post("/sensoresEmpresa", function (req, res) {
+    dashboardController.sensoresEmpresa(req, res);
+})
 
+router.get("/ultimas/:idSensor1/:idSensor2/:limitSelect", function (req, res) {
+    dashboardController.buscarUltimasMedidas(req, res);
+})
+
+router.get("/tempoReal/:idSensor1/:idSensor2", function (req, res) {
+    dashboardController.buscarMedidasEmTempoReal(req, res);
+})
 
 module.exports = router;
