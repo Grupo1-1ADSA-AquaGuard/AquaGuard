@@ -31,7 +31,7 @@ const serial = async (
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
                 host: 'localhost',
                 user: 'root',
-                password: 'tcrt',
+                password: '#Gf47139948801',
                 database: 'AquaGuard2'
             }
         ).promise();
@@ -43,7 +43,9 @@ const serial = async (
 
 
     const portas = await serialport.SerialPort.list();
+    console.log(portas)
     const portaArduino = portas.find((porta) => porta.vendorId == 2341 && porta.productId == 43);
+    // const portaArduino = portas.find((porta) => porta.productId == 7523);
     if (!portaArduino) {
         throw new Error('O arduino não foi encontrado em nenhuma porta serial');
     }
@@ -80,10 +82,10 @@ const serial = async (
 
             } else if (AMBIENTE == 'desenvolvimento') {
                 await poolBancoDados.execute(
-                    'INSERT INTO leituraSensores (leitura, fk_sensor) VALUES (?, 100), (?, 101)',
+                    'INSERT INTO leituraSensores (leitura, fk_sensor) VALUES (?, 106), (?, 107)',
                     [chave1, chave2]
                 );
-                console.log(`valores inseridos no banco ${chave1, chave2}`)
+                console.log(`valores inseridos no banco ${chave1} e ${chave2}`);
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');

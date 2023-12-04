@@ -111,7 +111,6 @@
 
 <script>
     //     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    //     empresa_profile.innerHTML = sessionStorage.NOME_EMPRESA;
 
     //     var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -209,6 +208,8 @@
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    empresa_profile.innerHTML = sessionStorage.NOME_EMPRESA;
+
     window.onload = exibirSensoresUsuario();
     let proximaAtualizacao;
     console.log(proximaAtualizacao);
@@ -353,7 +354,6 @@
         const config = {
             type: 'bar',
             data: dados,
-            maintainAspectRatio: false
         };
 
         // Adicionando gráfico criado em div na tela

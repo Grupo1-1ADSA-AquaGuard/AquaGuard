@@ -136,6 +136,9 @@ a {
 #nivelAgua {
     width: 40%;
     height: 80%;
+    /* background-color: yellow; */
+    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 #kpi {
@@ -191,13 +194,9 @@ a {
 #sensoresAtivados {
     height: 80%;
     width: 88%;
-    background-color: yellow;
-}
-
-#myChart2{
-    width: 100%;
-    height: 100%;
-    background-color: orange;
+    /* background-color: yellow; */
+    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 #kpi .info_kpi h3 {
