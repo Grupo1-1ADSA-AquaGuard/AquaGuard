@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style_dashboard.css">
     <title>Usuários</title>
     <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
 
 </head>
 
@@ -25,13 +25,13 @@
             </div>
             <ul class="abas">
                 <li>
-                    <h2><img src="../assets/imgs/dash/home_icon.png"><a href="dashboard.html">   Dashboard</a></h2>
+                    <h2><img src="../assets/imgs/dash/home_icon.png"><a href="dashboard.html"> Dashboard</a></h2>
                 </li>
                 <li id="aqui">
-                    <h2><img src="../assets/imgs/dash/contato.png"><a href="#">   Usuários</a></h2>
+                    <h2><img src="../assets/imgs/dash/contato.png"><a href="#"> Usuários</a></h2>
                 </li>
                 <li>
-                    <h2><img src="../assets/imgs/dash/settings.png"><a href="dadosEmpresa.html">   Dados empresa</a></h2>
+                    <h2><img src="../assets/imgs/dash/settings.png"><a href="dadosEmpresa.html"> Dados empresa</a></h2>
 
                 </li>
             </ul>
@@ -43,59 +43,66 @@
     </div>
 
     <div class="container" id="usuarios">
-        <div class="titulo_dash">
-            <h2>Cadastro de usuários </h2>&nbsp;&nbsp;
-            <h2  id="empresa_profile">Nome</h2>
-        </div>
-        <div id="formulario-cadastro">
-            <div class="card">
-                <div class="atributo">
-                    <div class="campo">
-                        <h3>Nome do usuário</h3>
-                        <input id="nome_usuario" type="text">
+        <div id="cadastrousuario">
+            <div class="titulo_dash">
+                <h2>Cadastro de usuários </h2>&nbsp;&nbsp;
+                <h2 id="empresa_profile">Nome</h2>
+            </div>
+            <div id="formulario-cadastro">
+                <div class="card">
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Nome do usuário</h3>
+                            <input id="nome_usuario" type="text">
+                        </div>
                     </div>
-                </div>
 
-                <div class="atributo">
-                    <div class="campo">
-                        <h3>E-mail</h3>
-                        <input id="email_usuario" type="email" placeholder="emailusuario@servidor">
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>E-mail</h3>
+                            <input id="email_usuario" type="email" placeholder="emailusuario@servidor">
+                        </div>
                     </div>
-                </div>
-                <div class="atributo">
-                    <div class="campo">
-                        <h3>Tipo do usuário</h3>
-                        <select name="" id="select_tipo">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="adm">Administrador</option>
-                            <option value="viz">Visualizador</option>
-                        </select>
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Tipo do usuário</h3>
+                            <select name="" id="select_tipo">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="visualizador">Visualizador</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="atributo">
-                    <div class="campo">
-                        <h3>Senha</h3>
-                        <input id="senha_usuario" onkeyup="verificarSenha()" type="password">
-                        <div id="msg_senha"></div>
+                    <div class="atributo">
+                        <div class="campo">
+                            <h3>Senha</h3>
+                            <input id="senha_usuario" onkeyup="verificarSenha()" type="password">
+                            <div id="msg_senha"></div>
+                        </div>
+                        <div class="campo">
+                            <h3>Confirme sua senha</h3>
+                            <input id="confirmacao_senha_usuario" onkeyup="confirmarASenha()" type="password">
+                            <div id="msg_senha2"></div>
+                        </div>
                     </div>
-                    <div class="campo">
-                        <h3>Confirme sua senha</h3>
-                        <input id="confirmacao_senha_usuario" onkeyup="confirmarASenha()" type="password">
-                        <div id="msg_senha2"></div>
+
+                    <div id="div_msg_erro"></div>
+
+                    <div class="atributo-botao">
+                        <button id="botao_apagar" onclick="limpar()">Limpar</button>
+                        <button id="botao_viz" onclick="visualizarUsuarios()">Usuários cadastrados</button>
+                        <button id="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
                     </div>
-                </div>
-
-                <div id="div_msg_erro"></div>
-
-                <div class="atributo-botao">
-                    <button id="botao_apagar" onclick="limpar()">Limpar</button>
-                    <button id="botao_viz" onclick="visualizarUsuarios()">Usuários cadastrados</button>
-                    <button id="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
                 </div>
             </div>
         </div>
 
+        <div id="usuariosCadastrados">
+            <h2 id="tituloUsuario">Usuários Cadastrados </h2>
+            <div id="listaUsuarios"></div>
+            <button onclick="cadastrarNovos()">Cadastrar novos usuários</button>
+        </div>
     </div>
 </body>
 
@@ -108,7 +115,136 @@
 
     var senha = '';
     var confirmarSenha = '';
+    window.onload = numUsuarios()
 
+
+    function numUsuarios() {
+        var fkEmpresa = sessionStorage.FK_EMPRESA;
+
+        fetch("/usuarios/numUsuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkEmpresaServer: fkEmpresa
+            }),
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO buscar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.NUM_USUARIOS = json.numUsuarios
+
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o select!");
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function cadastrarNovos() {
+        cadastrousuario.style.display = "flex"
+        usuariosCadastrados.style.display = "none"
+    }
+
+    function visualizarUsuarios() {
+        cadastrousuario.style.display = "none"
+        usuariosCadastrados.style.display = "flex"
+        listaUsuarios.innerHTML = ''
+
+        var fkEmpresa = sessionStorage.FK_EMPRESA;
+
+
+        fetch("/usuarios/buscasUsuariosEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkEmpresaServer: fkEmpresa
+            }),
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO buscar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    for (i = 0; i < sessionStorage.NUM_USUARIOS; i++) {
+
+                        if (i >= 3) {
+                            listaUsuarios.style.overflowY = 'scroll';
+                        }
+
+                        listaUsuarios.innerHTML += `
+                                <div class="Usuario">
+                                    <h2>${json[i].nome_usuario}</h2>
+                                    <hr>
+                                    <h3>${json[i].email_usuario}</h3>
+                                    <h3>${json[i].tipo_usuario}</h3>
+                                    <button onclick="apagarUsuario(this)" data-id="${json[i].id_usuario}">Apagar</button>
+                                </div> <br>
+                                `
+                    }
+
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o select!");
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+
+    }
+
+    function apagarUsuario(botao) {
+        var idUsuario = botao.getAttribute("data-id");
+        var confirmacao = confirm(`Você deseja realmente excluir este usuário? Os dados seram excluídos permanentemente!`)
+
+        if (confirmacao == true) {
+            fetch(`/usuarios/deletar`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario
+                }),
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    alert('Usuário excluído com sucesso!')
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        } else {
+            alert('Os dados estão a salvo :)')
+        }
+
+    }
     function verificarSenha() {
         senha = senha_usuario.value;
 
@@ -145,23 +281,53 @@
 
     }
 
+
     function cadastrar() {
         var nomeUsuario = nome_usuario.value;
-        senha = senha_usuario.value;
         var email = email_usuario.value;
+        var tipoUsuario = select_tipo.value;
+        senha = senha_usuario.value;
+        var fkEmpresa = sessionStorage.FK_EMPRESA;
+
         var resultado = confirm(`Deseja cadastrar o usuário ${nomeUsuario}`)
 
         if (nomeUsuario == "") {
             alert("Usuário Inválido")
-        }
-
-        else if (((email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false) {
+        } else if (((email.includes('@gmail') || (email.includes('@hotmail') || (email.includes('@outlook')) && email.endsWith('.com')))) == false) {
             alert("Email Inválido")
-        }
-
-        else if (senha == "" || confirmarSenha == "") {
+        } else if (senha == "" || confirmarSenha == "") {
             alert("Senha Incorreta")
         }
+
+        fetch("/usuarios/cadastroUsuarioEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeUsuarioServer: nomeUsuario,
+                emailServer: email,
+                tipoUsuarioServer: tipoUsuario,
+                senhaServer: senha,
+                fkEmpresaServer: fkEmpresa
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert('Cadastro realizado com sucesso!')
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
 
     }
 
@@ -174,7 +340,9 @@
         senha_usuario.style.boxShadow = 'none'
         confirmacao_senha_usuario.style.boxShadow = 'none'
         msg_senha2.innerHTML = ''
-        msg_senha.innerHTML  = ''
+        msg_senha.innerHTML = ''
     }
+
+    window.onload = validarSessao();
 
 </script>

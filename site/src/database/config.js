@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "Aquaguard2",
     user: "root",
-    password: "#Gf47139948801",
+    password: "25101724",
 };
 
 function executar(instrucao) {

@@ -51,18 +51,41 @@
         <div class="linha">
 
             <div class="chart-container" id="nivelAgua">
-                <h2>Nível da água</h2>
+                <h2>Tempo até chegar no nível da rua</h2>
                 <canvas id="myChart1"></canvas>
             </div>
 
             <div class="chart-container" id="kpi">
                 <div class="parts">
                     <div class="info_kpi" id="alerta_kpi">
-                        <img src="../assets/imgs/dash/alert_icon.png">
                         <h2> A água está acima dos sensores</h2>
                     </div>
                 </div>
+                <div class="faixas">
+                    <div class="ideal" >
+                        0-4
+                    </div>
+                    <div class="alerta">
+                        5
+                    </div>
+                    <div class="perigo">
+                        6-9
+                    </div>
+                    <div class="critico">
+                        10
+                    </div>
+                </div>
 
+            </div>
+
+        </div>
+
+        <div class="linha">
+            <div class="chart-container" id="sensoresAtivados">
+                <h2>Sensores ativados</h2>
+                <canvas id="myChart2"></canvas>
+            </div>
+            <div class="chart-container" id="kpi">
                 <div class="parts">
                     <h2>Status dos sensores</h2>
                     <div class="info_kpi">
@@ -77,9 +100,6 @@
                         </div>
 
                         <div class="manutencao_kpi">
-                            <!-- <h3 id="text-manuteção">manutenção</h3>
-                            <h3 id="text-não-necessária">Não necessária</h3> -->
-                            <!-- <h3>manutenção</h3> -->
                             <h3 id="manutencao">Manutenção não necessária</h3>
                         </div>
 
@@ -96,15 +116,6 @@
             </div>
 
         </div>
-
-        <div class="linha">
-            <div class="chart-container" id="sensoresAtivados">
-                <h2>Sensores ativados</h2>
-                <canvas id="myChart2"></canvas>
-            </div>
-        </div>
-
-    </div>
 </body>
 
 </html>
@@ -143,7 +154,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.ID_SENSOR_1 = json.sensor1;
                     sessionStorage.ID_SENSOR_2 = json.sensor2;
-               
+
 
                     idSensor1 = sessionStorage.ID_SENSOR_1;
                     idSensor2 = sessionStorage.ID_SENSOR_2;
@@ -166,7 +177,7 @@
 
     function obterDadosGrafico() {
         console.log('Entrei na obterDadosGrafico()')
-        
+
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
@@ -188,9 +199,9 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-    
-    
-            console.log(`estou depois do fetch ${idSensor1}/${idSensor2}`)
+
+
+        console.log(`estou depois do fetch ${idSensor1}/${idSensor2}`)
     }
 
 
@@ -257,7 +268,7 @@
             document.getElementById(`myChart1`),
             config1
         );
-    
+
 
         let labels2 = listaLeituraSensores[2];
 
@@ -342,10 +353,10 @@
                             listaLeituraSensores[2].shift();// apagar o primeiro
                         }
 
-                        
-                        
-                        
-                        
+
+
+
+
                         // if(
                         //     listaLeituraSensores[0][2] == 0 ||
                         //     listaLeituraSensores[1][2] == 0
@@ -356,47 +367,47 @@
                         //     console.log(`estou no if`)
 
                         // } else{
-                            if(
-                                listaLeituraSensores[0][2] == 1 &&
-                                listaLeituraSensores[0][1] == 0){
-                                    listaTempoSensores[1][0] = listaLeituraSensores[2][2];
-                                    console.log(`entre e salvei1 ${listaLeituraSensores[2][2]}`);
-                            }
+                        if (
+                            listaLeituraSensores[0][2] == 1 &&
+                            listaLeituraSensores[0][1] == 0) {
+                            listaTempoSensores[1][0] = listaLeituraSensores[2][2];
+                            console.log(`entre e salvei1 ${listaLeituraSensores[2][2]}`);
+                        }
 
-                            if(
-                                listaLeituraSensores[1][2] == 1 &&
-                                listaLeituraSensores[1][1] == 0){
-                                    listaTempoSensores[1][1] = listaLeituraSensores[2][2];
-                                    console.log(`entre e salvei2 ${listaLeituraSensores[2][2]}`);
-                            }
+                        if (
+                            listaLeituraSensores[1][2] == 1 &&
+                            listaLeituraSensores[1][1] == 0) {
+                            listaTempoSensores[1][1] = listaLeituraSensores[2][2];
+                            console.log(`entre e salvei2 ${listaLeituraSensores[2][2]}`);
+                        }
 
-                            if(listaTempoSensores[1][0] != 0 && listaTempoSensores[1][0] != undefined && listaTempoSensores[1][1] != 0 && listaTempoSensores[1][1] != undefined){
-                                console.log(`entrei no tempo sensores`)
-                                var tempoSensores = 0;
-                                tempoSensores += Number((listaTempoSensores[1][1][0] + listaTempoSensores[1][1][1])* 60);
-                                tempoSensores += Number(listaTempoSensores[1][1][3] + listaTempoSensores[1][1][4]);
-                                tempoSensores += Number((listaTempoSensores[1][1][6] + listaTempoSensores[1][1][7])/ 60);
+                        if (listaTempoSensores[1][0] != 0 && listaTempoSensores[1][0] != undefined && listaTempoSensores[1][1] != 0 && listaTempoSensores[1][1] != undefined) {
+                            console.log(`entrei no tempo sensores`)
+                            var tempoSensores = 0;
+                            tempoSensores += Number((listaTempoSensores[1][1][0] + listaTempoSensores[1][1][1]) * 60);
+                            tempoSensores += Number(listaTempoSensores[1][1][3] + listaTempoSensores[1][1][4]);
+                            tempoSensores += Number((listaTempoSensores[1][1][6] + listaTempoSensores[1][1][7]) / 60);
 
-                                tempoSensores -= Number((listaTempoSensores[1][0][0] + listaTempoSensores[1][0][1])* 60);
-                                tempoSensores -= Number(listaTempoSensores[1][0][3] + listaTempoSensores[1][0][4]);
-                                tempoSensores -= Number((listaTempoSensores[1][0][6] + listaTempoSensores[1][0][7])/ 60);
+                            tempoSensores -= Number((listaTempoSensores[1][0][0] + listaTempoSensores[1][0][1]) * 60);
+                            tempoSensores -= Number(listaTempoSensores[1][0][3] + listaTempoSensores[1][0][4]);
+                            tempoSensores -= Number((listaTempoSensores[1][0][6] + listaTempoSensores[1][0][7]) / 60);
 
-                                minutosTotais = tempoSensores;
+                            minutosTotais = tempoSensores;
 
-                                velMedia = 0.2 / (minutosTotais * 60); 
-                                tempoReacao = 3 / velMedia;
-                                console.log(`velocidade media ${velMedia}`)
-                            }
+                            velMedia = 0.2 / (minutosTotais * 60);
+                            tempoReacao = 3 / velMedia;
+                            console.log(`velocidade media ${velMedia}`)
+                        }
                         // }
 
-                        if(tempoReacao != 0){
-                            if(tempoReacao - (3 * contadorTempoReacao) > 0){
+                        if (tempoReacao != 0) {
+                            if (tempoReacao - (3 * contadorTempoReacao) > 0) {
                                 update1 = tempoReacao - (3 * contadorTempoReacao);
                             } else {
                                 update1 = 0;
                             }
 
-                            if((3 * contadorTempoReacao) < tempoReacao){
+                            if ((3 * contadorTempoReacao) < tempoReacao) {
                                 update2 = (3 * contadorTempoReacao)
                             } else {
                                 update2 = tempoReacao;
@@ -407,13 +418,13 @@
                             contadorTempoReacao++
                         }
 
-                        myChart1.update(); 
-                        myChart2.update();   
+                        myChart1.update();
+                        myChart2.update();
                     }
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                
+
             }
             proximaAtualizacao = setTimeout(() => atualizarGrafico(myChart1, myChart2), 3000);
         })
@@ -421,4 +432,7 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
+    window.onload = validarSessao()
+
 </script>
