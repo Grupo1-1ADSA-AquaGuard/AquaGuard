@@ -62,7 +62,7 @@ function buscarUltimasMedidas(req, res) {
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    dashboardModel.buscarUltimasMedidas(idSensor1, idSensor2, limite_linhas).then(function(resultado) {
+    dashboardModel.buscarUltimasMedidas(idSensor1, idSensor2, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             console.log("Resultado do banco")
             console.log(resultado);
@@ -77,7 +77,32 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function registrarAlertas(req, res) {
+
+    var fkAlerta = req.body.fkAlertaServer;
+    var idLeitura = req.body.idLeituraServer;
+
+    console.log(`Alerta ${fkAlerta} idLeitura ${idLeitura}`);
+
+    dashboardModel.registrarAlertas(fkAlerta, idLeitura)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     sensoresEmpresa,
-    buscarUltimasMedidas
+    buscarUltimasMedidas,
+    registrarAlertas
 }

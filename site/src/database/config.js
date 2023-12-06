@@ -20,9 +20,9 @@ var mysql = require("mysql2");
 // CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {
     host: "localhost",
-    database: "Aquaguard2",
     user: "root",
-    password: "25101724",
+    database: "Aquaguard2",
+    password: "#Gf47139948801",
 };
 
 function executar(instrucao) {

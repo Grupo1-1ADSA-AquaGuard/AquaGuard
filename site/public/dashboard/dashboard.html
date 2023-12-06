@@ -9,9 +9,9 @@
     <title>Dashboard</title>
     <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
 
 </head>
-
 <body>
 
     <div class="container" id="left_bar">
@@ -32,7 +32,9 @@
                 </li>
                 <li id="dadosempresa">
                     <h2><img src="../assets/imgs/dash/settings.png"><a href="dadosEmpresa.html"> Dados empresa</a></h2>
-
+                </li>
+                <li id="downloadManual">
+                    <h2><img src="../assets/imgs/download_icon.png"><a href="../assets/manual/manual_de_instalacao.pdf" download="manual_de_instalacao.pdf"> Manual de Instalação</a></h2>
                 </li>
             </ul>
             <div id="user_in">
@@ -51,14 +53,14 @@
         <div class="linha">
 
             <div class="chart-container" id="nivelAgua">
-                <h2>Tempo até chegar no nível da rua</h2>
+                <h2 id="tempoRua" >Tempo até chegar no nível da rua</h2>
                 <canvas id="myChart1"></canvas>
             </div>
 
             <div class="chart-container" id="kpi">
                 <div class="parts">
                     <div class="info_kpi" id="alerta_kpi">
-                        <h2> A água está acima dos sensores</h2>
+                        <h2 id="alerta_texto"></h2>
                     </div>
                 </div>
                 <div class="faixas">
@@ -91,12 +93,12 @@
                     <div class="info_kpi">
                         <div class="sensor_kpi">
                             <h3>Sensor 1</h3>
-                            <div class="sensor1"></div>
+                            <div id="sensor1"></div>
                         </div>
 
                         <div class="sensor_kpi">
                             <h3>Sensor 2</h3>
-                            <div class="sensor2"></div>
+                            <div id="sensor2"></div>
                         </div>
 
                         <div class="manutencao_kpi">
@@ -109,7 +111,7 @@
                 <div class="parts">
                     <h2>Velocidade média da água</h2>
                     <div class="info_kpi" style="height: 20px;">
-                        <h3>1,2 M/h</h3>
+                        <h3 id="velMediaAgua">0,0 M/s</h3>
                     </div>
                 </div>
 
@@ -206,7 +208,7 @@
 
 
 
-    var listaLeituraSensores = [[], [], []];
+    var listaLeituraSensores = [[], [], [], []];
     var listaTempoSensores = [[99, 1], []];
     function plotarGrafico(resposta) {
         var bloco1 = [];
@@ -228,6 +230,7 @@
                     }
                     listaLeituraSensores[0].push(somaBloco1);
                     listaLeituraSensores[2].push(resposta[contador].momento);
+                    listaLeituraSensores[3].push(resposta[contador].id_leitura);
                     bloco1.shift();
                     somaBloco1 = 0;
                 }
@@ -336,6 +339,7 @@
                                 if (contador % limiteBloco1 == 0) {
                                     listaLeituraSensores[0].push(somaBloco1);
                                     listaLeituraSensores[2].push(resposta[contador].momento);
+                                    listaLeituraSensores[3].push(resposta[contador].id_leitura);
                                 }
 
                             } else {
@@ -351,22 +355,17 @@
                             listaLeituraSensores[0].shift();// apagar o primeiro
                             listaLeituraSensores[1].shift();// apagar o primeiro
                             listaLeituraSensores[2].shift();// apagar o primeiro
+                            listaLeituraSensores[3].shift();// apagar o primeiro
                         }
 
 
+                        if (listaLeituraSensores[1][2] > listaLeituraSensores[0][2] && listaLeituraSensores[0][2] == 0){
+                            manutencao.innerHTML = `Entrar em contato para manutenção!`;
+                            sensor1.style.backgroundColor = `#ff0000`;
+                            sensor2.style.backgroundColor = `#ff0000`;
 
+                        }
 
-
-                        // if(
-                        //     listaLeituraSensores[0][2] == 0 ||
-                        //     listaLeituraSensores[1][2] == 0
-                        // ){
-                        //     tempoReacao = 0;
-                        //     update1 = 99;
-                        //     update2 = 1;
-                        //     console.log(`estou no if`)
-
-                        // } else{
                         if (
                             listaLeituraSensores[0][2] == 1 &&
                             listaLeituraSensores[0][1] == 0) {
@@ -382,7 +381,7 @@
                         }
 
                         if (listaTempoSensores[1][0] != 0 && listaTempoSensores[1][0] != undefined && listaTempoSensores[1][1] != 0 && listaTempoSensores[1][1] != undefined) {
-                            console.log(`entrei no tempo sensores`)
+                            console.log(`entrei no tempo sensores`);
                             var tempoSensores = 0;
                             tempoSensores += Number((listaTempoSensores[1][1][0] + listaTempoSensores[1][1][1]) * 60);
                             tempoSensores += Number(listaTempoSensores[1][1][3] + listaTempoSensores[1][1][4]);
@@ -398,7 +397,6 @@
                             tempoReacao = 3 / velMedia;
                             console.log(`velocidade media ${velMedia}`)
                         }
-                        // }
 
                         if (tempoReacao != 0) {
                             if (tempoReacao - (3 * contadorTempoReacao) > 0) {
@@ -412,14 +410,18 @@
                             } else {
                                 update2 = tempoReacao;
                             }
-
+                            
                             listaTempoSensores[0][0] = update1;
                             listaTempoSensores[0][1] = update2;
                             contadorTempoReacao++
+                            
+                            velMediaAgua.innerHTML = `${velMedia.toFixed(3)} M/s`;
+                            tempoRua.innerHTML = `Tempo até chegar ao nível da rua ${(update1 /60).toFixed(2)} minutos`
                         }
 
                         myChart1.update();
                         myChart2.update();
+                        alertas();
                     }
                 });
             } else {

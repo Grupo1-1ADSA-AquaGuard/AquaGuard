@@ -44,8 +44,8 @@ const serial = async (
 
     const portas = await serialport.SerialPort.list();
     console.log(portas)
-    const portaArduino = portas.find((porta) => porta.vendorId == 2341 && porta.productId == 43);
-    // const portaArduino = portas.find((porta) => porta.productId == 7523);
+    // const portaArduino = portas.find((porta) => porta.vendorId == 2341 && porta.productId == 43);
+    const portaArduino = portas.find((porta) => porta.productId == 7523);
     if (!portaArduino) {
         throw new Error('O arduino não foi encontrado em nenhuma porta serial');
     }

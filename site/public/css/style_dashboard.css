@@ -196,7 +196,6 @@ a {
 }
 
 #alerta_kpi {
-    background-color: #ff0f0f;
     border-radius: 4px;
     height: 10vh;
 }
@@ -279,14 +278,14 @@ a {
     /* margin-right: 10px; */
 }
 
-.sensor1 {
+#sensor1 {
     height: 20px;
     width: 20px;
     border-radius: 100%;
     background-color: lime;
 }
 
-.sensor2 {
+#sensor2 {
     height: 20px;
     width: 20px;
     border-radius: 100%;

@@ -16,4 +16,9 @@ router.get("/ultimas/:idSensor1/:idSensor2/:limitSelect", function (req, res) {
     dashboardController.buscarUltimasMedidas(req, res);
 })
 
+router.post("/alertas", function (req, res) {
+    dashboardController.registrarAlertas(req, res);
+})
+
+
 module.exports = router;

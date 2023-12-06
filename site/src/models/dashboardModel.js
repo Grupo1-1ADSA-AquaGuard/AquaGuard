@@ -40,8 +40,17 @@ function buscarUltimasMedidas(idSensor1, idSensor2, limite_linhas) {
     return database.executar(instrucao);
 }
 
+function registrarAlertas(fkAlerta, idLeitura) {
+    var instrucao = `
+        UPDATE leituraSensores SET fk_alerta = ${fkAlerta} where id_leitura IN (${idLeitura}, ${idLeitura + 1})
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     sensoresEmpresa,
-    buscarUltimasMedidas
+    buscarUltimasMedidas,
+    registrarAlertas
 }
